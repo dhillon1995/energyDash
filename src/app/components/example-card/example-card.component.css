@@ -1,0 +1,67 @@
+.exampleCard {
+    min-width: 380px;
+    max-width: 380px;
+    min-height: 300px;
+    max-height: 300px;
+    padding: 30px;
+}
+
+.graph {
+    width: 160px;
+    height: 90px;
+}
+
+.cardTitle {
+    position: absolute;
+    align-items: flex-start;
+}
+
+mat-icon {
+    min-height: 40px;
+}
+
+.redHighlight {
+    color: red;
+    position: inherit;
+    font-size: 20px;
+}
+
+.greenHighlight {
+    color: green;
+    position: inherit;
+    font-size: 20px;
+}
+
+.standardHighlight {
+    position: inherit;
+    font-size: 20px;
+}
+
+.subHeading {
+    position: inherit;
+    font-size: 12px;
+}
+
+
+mat-card {
+    background-color: rgb(240, 240, 240);
+}
+
+.miniCard {
+    max-height: 28px;
+    min-width: 134px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.graphCard {
+    max-height: 94px;
+    max-width: 156px;
+    background-color: rgb(255, 255, 255);
+}
+
+.titleCard {
+    min-width: 100px;
+    max-height: 36px;
+    background-color: rgb(240, 240, 240);
+}

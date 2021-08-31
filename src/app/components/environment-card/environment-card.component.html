@@ -1,0 +1,72 @@
+<mat-card class="exampleCard">
+
+    <mat-grid-list cols="2" rowHeight="40px">
+        
+        <mat-grid-tile colspan=1>
+            <div class="cardTitle">
+                <h2>Environment</h2>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1>
+            <mat-icon>thermostat</mat-icon>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1 rowspan=2>
+            <div class="icon">
+                <mat-icon [inline]="true">flare</mat-icon>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1 rowspan=2>
+            <mat-card class="miniCard">
+                <div class="greenHighlight">
+                    0 kWh
+                </div>
+                <div class="subHeading">
+                    Generated Today
+                </div>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1 rowspan=2>
+            <mat-card class="miniCard">
+                <div class="greenHighlight">
+                    0 kWh
+                </div>
+                <div class="subHeading">
+                    Generated this month
+                </div>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1 rowspan=2>
+            <mat-card class="miniCard">
+                <div class="standardHighlight">
+                    Temp
+                </div>
+                25 C
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1 rowspan=2>
+            <mat-card class="miniCard">
+                <div class="standardHighlight">
+                Sun Hours
+                </div>
+                10
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1 rowspan=2>
+            <mat-card class="miniCard">
+                <div class="standardHighlight">
+                    Rain Chance
+                </div>
+                10%
+            </mat-card>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+</mat-card>

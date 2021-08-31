@@ -1,0 +1,51 @@
+.costCard {
+    min-width: 380px;
+    max-width: 380px;
+    min-height: 300px;
+    max-height: 300px;
+    padding: 30px;
+}
+
+
+.graph {
+    height: 120px;
+}
+
+
+.cardTitle {
+    position: absolute;
+    align-items: flex-start;
+}
+
+
+mat-icon {
+    min-height: 40px;
+}
+
+
+img {
+    max-height: 98px;
+}
+
+.redHighlight {
+    color: red;
+    position: inherit;
+    font-size: 36px;
+}
+
+.greenHighlight {
+    color: green;
+    position: inherit;
+    font-size: 36px;
+}
+
+.standardHighlight {
+    position: inherit;
+    font-size: 26px;
+}
+
+.subHeading {
+    position: inherit;
+    font-size: 12px;
+    text-transform: uppercase;
+}

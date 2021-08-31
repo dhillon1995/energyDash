@@ -1,0 +1,21 @@
+.container {
+    padding: 10px;
+}
+
+.greenHeading {
+    font-size: 22px;
+    color: rgb(0, 160, 35)
+}
+
+.subHeading {
+    font-size: 18px;
+}
+
+.graph {
+    min-height: 500px;
+}
+
+.heading {
+    font-size: 36px;
+    text-decoration: underline;
+}

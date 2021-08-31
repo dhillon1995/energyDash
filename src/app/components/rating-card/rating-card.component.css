@@ -1,0 +1,82 @@
+.ratingCard {
+    min-width: 380px;
+    max-width: 380px;
+    min-height: 300px;
+    max-height: 300px;
+    padding: 30px;
+}
+
+.graph {
+    height: 120px;
+}
+
+.cardTitle {
+    position: absolute;
+    align-items: flex-start;
+}
+
+mat-icon {
+    min-height: 40px;
+}
+
+img {
+    max-height: 98px;
+}
+
+.redHighlight {
+    color: red;
+    position: inherit;
+    font-size: 26px;
+}
+
+.greenHighlight {
+    color: green;
+    position: inherit;
+    font-size: 26px;
+}
+
+.standardHighlight {
+    position: inherit;
+    font-size: 26px;
+}
+
+.subHeading {
+    position: inherit;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding-top: 6px;
+}
+
+mat-card{
+    background-color: rgb(240, 240, 240);
+}
+
+.miniCard {
+    max-height: 52px;
+    min-width: 100px;
+    max-width: 142px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.graphCard {
+    max-height: 94px;
+    max-width: 180px;
+    background-color: rgb(255, 255, 255);
+}
+
+.titleCard {
+    min-width: 100px;
+    max-height: 36px;
+    background-color: rgb(240, 240, 240);
+}
+
+.up{
+    color: green;
+    font-size: 40px;
+}
+
+.down{
+    color: red;
+    font-size: 40px;
+}

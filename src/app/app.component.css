@@ -1,0 +1,24 @@
+
+.pagecontainer {
+    background-color: rgb(250, 250, 250);
+    min-height: 980px;
+}
+
+.tabContainer {
+    padding: 20px;
+    text-align: center;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.phoneticaLogo {
+    max-width: 90px;
+}
+
+.example-tab-icon {
+    margin-right: 8px;
+  }
+
+.icon{
+    font-size: 40px;
+}

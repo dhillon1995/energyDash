@@ -1,0 +1,43 @@
+.container {
+    padding: 10px;
+}
+
+.greenHeading {
+    font-size: 22px;
+    color: rgb(0, 160, 35)
+}
+
+.redHeading {
+    font-size: 22px;
+    color: rgb(187, 1, 1)
+}
+
+.standardHeading {
+    font-size: 22px;
+}
+
+.subHeading {
+    font-size: 18px;
+}
+
+.graph {
+    min-height: 500px;
+}
+
+.heading {
+    font-size: 36px;
+    text-decoration: underline;
+}
+
+.vl {
+    border-left: 2px solid grey;
+    height: 50px;
+  }
+
+.icon {
+    color: red;
+}
+
+.max {
+    min-height: 360px;
+}

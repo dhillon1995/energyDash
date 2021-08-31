@@ -1,0 +1,54 @@
+<mat-card class="ratingCard">
+
+    <mat-grid-list cols="2" rowHeight="21px">
+        
+        <mat-grid-tile colspan=1 rowspan=2>
+            <div class="cardTitle">
+                <h2>Comparison</h2>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=1 rowspan=2>
+            <mat-icon>trending_up</mat-icon>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=2 rowspan=6>
+            <mat-card class="graphCard">
+                <img class="graph" src="assets/img/dialCropped.PNG">
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan=4>
+            <mat-card class="miniCard">
+                <div class="greenHighlight">
+                    5.6 kWh
+                </div>
+                <div class="subHeading">This weeks consumption</div>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan=4>
+            <mat-card class="miniCard">
+                <div class="redHighlight">
+                    6.2 kWh
+                </div>
+                <div class="subHeading">Consumption this week last year</div>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan=3>
+            <div class="up">
+                <mat-icon [inline]="true">arrow_downward</mat-icon>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile rowspan=3>
+            <div class="down">
+                <mat-icon [inline]="true">arrow_upward</mat-icon>
+            </div>
+        </mat-grid-tile>
+
+
+    </mat-grid-list>
+
+</mat-card>
