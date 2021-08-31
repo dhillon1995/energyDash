@@ -11,9 +11,12 @@
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <div class="icon">
-            <mat-icon [inline]="true" class="example-tab-icon">grid_view</mat-icon>
-          </div>Home
+          <div class="hover">
+            <div class="icon">
+              <mat-icon>grid_view</mat-icon>
+            </div>
+              &nbsp;&nbsp;Home
+          </div>
         </ng-template>
         <app-hometab></app-hometab>
       </mat-tab>
@@ -33,7 +36,6 @@
             <mat-icon [inline]="true" class="example-tab-icon">euro</mat-icon>
           </div>Cost
         </ng-template>
-    
         <app-costtab></app-costtab>
       </mat-tab>
 
@@ -43,7 +45,6 @@
             <mat-icon [inline]="true" class="example-tab-icon">compare_arrows</mat-icon>
           </div>Comparison
         </ng-template>
-    
         <app-comparetab></app-comparetab>
       </mat-tab>
 
@@ -53,7 +54,6 @@
             <mat-icon [inline]="true" class="example-tab-icon">thermostat</mat-icon>
           </div>Environment
         </ng-template>
-    
         <app-environmenttab></app-environmenttab>
       </mat-tab>
 
@@ -62,7 +62,6 @@
           <mat-icon class="example-tab-icon">kitchen</mat-icon>
           Appliances
         </ng-template>
-    
         <app-appliancestab></app-appliancestab>
       </mat-tab>
 
@@ -75,6 +74,8 @@
         Content 3
       </mat-tab>
     </mat-tab-group>
+
+    <app-testhome></app-testhome>
 
   </div>
 </div>

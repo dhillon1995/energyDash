@@ -21,4 +21,15 @@
 
 .icon{
     font-size: 40px;
+    background-color: hotpink;
+}
+
+.hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hover:hover{
+    color:grey
 }
