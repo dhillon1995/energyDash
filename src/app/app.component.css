@@ -21,7 +21,6 @@
 
 .icon{
     font-size: 40px;
-    background-color: hotpink;
 }
 
 .hover{
@@ -31,5 +30,6 @@
 }
 
 .hover:hover{
-    color:grey
+    text-shadow: 3px 3px 5px rgba(184, 184, 184, 0.404);
+    color:rgb(0, 0, 0);
 }
