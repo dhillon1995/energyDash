@@ -46,6 +46,30 @@ img {
 
 .subHeading {
     position: inherit;
-    font-size: 12px;
+    font-size: 18px;
     text-transform: uppercase;
+}
+
+.up{
+    font-size: 26px;
+    color: green;
+}
+
+.down{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 28px;
+    color: red;
+}
+
+.arrowTile{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: hotpink;
+}
+
+.wattUnit{
+    font-size: 26px;
 }

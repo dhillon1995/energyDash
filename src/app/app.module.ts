@@ -23,6 +23,7 @@ import { EnvironmenttabComponent } from './components/environmenttab/environment
 import { AppliancestabComponent } from './components/appliancestab/appliancestab.component';
 import { TesthomeComponent } from './components/testhome/testhome.component';
 import { MapcardComponent } from './components/mapcard/mapcard.component';
+import { IframeComponent } from './components/iframe/iframe.component';
 
 
 
@@ -42,7 +43,8 @@ import { MapcardComponent } from './components/mapcard/mapcard.component';
     EnvironmenttabComponent,
     AppliancestabComponent,
     TesthomeComponent,
-    MapcardComponent
+    MapcardComponent,
+    IframeComponent
   ],
   imports: [
     BrowserModule,
