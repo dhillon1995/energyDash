@@ -23,23 +23,25 @@ mat-icon {
 .redHighlight {
     color: red;
     position: inherit;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .greenHighlight {
     color: green;
     position: inherit;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .standardHighlight {
     position: inherit;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .subHeading {
     position: inherit;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 

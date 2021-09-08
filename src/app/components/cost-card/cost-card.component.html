@@ -28,7 +28,7 @@
 
         <mat-grid-tile colspan=1 rowspan=1>
             
-            <div class="subHeading">£0.00 </div>
+            <div class="subHeading">{{this.testVar3.lights_today}} </div>
 
         </mat-grid-tile>
 
@@ -48,7 +48,7 @@
 
         <mat-grid-tile colspan=1 rowspan=1>
             
-            <div class="subHeading">£0.00 </div>
+            <div class="subHeading">{{this.testVar3.kitchen_today}}</div>
 
         </mat-grid-tile>
 
@@ -68,13 +68,13 @@
 
         <mat-grid-tile colspan=1 rowspan=1>
             
-            <div class="subHeading">£0.00 </div>
+            <div class="subHeading">{{this.testVar3.ac_today}}</div>
 
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
             
-            <div class="subHeading">Sockets </div>
+            <div class="subHeading">MB Ports</div>
 
         </mat-grid-tile>
 
@@ -88,7 +88,7 @@
 
         <mat-grid-tile colspan=1 rowspan=1>
             
-            <div class="subHeading">£0.00 </div>
+            <div class="subHeading">{{this.testVar3.sockets_today}}</div>
 
         </mat-grid-tile>
 
@@ -110,7 +110,7 @@
 
         <mat-grid-tile colspan=1>
             <div class="wattUnit">
-                0W
+                {{this.testVar3.solar_now}}
             </div>
         </mat-grid-tile>
 
@@ -122,7 +122,7 @@
 
         <mat-grid-tile colspan=1>
             <div class="wattUnit">
-                0W
+                {{this.testVar3.property_instant}}
             </div>
         </mat-grid-tile>
 
@@ -134,7 +134,7 @@
 
         <mat-grid-tile colspan=1>
             <div class="wattUnit">
-                0W
+                {{this.testVar3.house_instant}}
             </div>
         </mat-grid-tile>
 
@@ -146,7 +146,7 @@
 
         <mat-grid-tile colspan=1>
             <div class="wattUnit">
-                0W
+                {{this.testVar3.office_now}}
             </div>
         </mat-grid-tile>
 

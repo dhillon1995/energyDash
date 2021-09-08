@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import testData from "../../../../../dataTest/dataTest.json"
+import exampleData from "../../../assets/snapshotExample.json"
 import testData2 from "../../../assets/snapshot.json"
 
 @Component({
@@ -9,23 +12,45 @@ import testData2 from "../../../assets/snapshot.json"
 })
 export class ExampleCardComponent implements OnInit {
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
-    console.log()
   }
 
   testVar: any = (testData2 as any);
 
   testVar2: any;
 
+  testVar3: any;
+
+  exampleDataVar: any = (exampleData as any);
+
+
+
+  getDataHttp(url:string) {
+
+    return this.http.get(url);
+  }
+
 
   ngOnInit(): void {
+
     this.testVar2 = JSON.parse(JSON.stringify(testData2));
-    console.log("this is the data", testData2)
-    console.log("this is the testVar", this.testVar)
-    console.log("this is the testVar2", this.testVar2)
-    console.log("this is Test from testVar", this.testVar.Test)
-    console.log("this is Test from testVar2", this.testVar2[0].power_now)
+    console.log("this is a power now test from testVar3", this.testVar2[0].power_now)
+    console.log("this is a power now test from exampleData", this.exampleDataVar.power_now)
+
+    let appInfo = "";
+    this.getDataHttp('../assets/snapshot.json').subscribe(
+      (data: any) => {
+        var test = data;
+        console.log("I CANT SEE DATA HERE: ", test);
+        this.testVar3 = JSON.parse(JSON.stringify(test));
+        console.log("this is testVar3", this.testVar3)
+        console.log("this is testVar3", this.testVar3.power_now)
+      }
+    )
+
   }
+
+
 
 }

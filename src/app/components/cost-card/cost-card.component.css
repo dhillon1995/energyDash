@@ -46,8 +46,9 @@ img {
 
 .subHeading {
     position: inherit;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
+    padding: 4px;
 }
 
 .up{
@@ -67,9 +68,9 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: hotpink;
 }
 
 .wattUnit{
-    font-size: 26px;
+    font-size: 20px;
+    padding: 4px;
 }

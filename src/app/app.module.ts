@@ -24,6 +24,7 @@ import { AppliancestabComponent } from './components/appliancestab/appliancestab
 import { TesthomeComponent } from './components/testhome/testhome.component';
 import { MapcardComponent } from './components/mapcard/mapcard.component';
 import { IframeComponent } from './components/iframe/iframe.component';
+import { HttpClient, HttpClientModule }    from '@angular/common/http';
 
 
 
@@ -54,7 +55,8 @@ import { IframeComponent } from './components/iframe/iframe.component';
     MatIconModule,
     MatCardModule,
     MatGridListModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
