@@ -34,15 +34,17 @@ export class ExampleCardComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log("breakdown Init")
+
     this.testVar2 = JSON.parse(JSON.stringify(testData2));
-    console.log("this is a power now test from testVar3", this.testVar2[0].power_now)
+    console.log("this is a power now test from testVar3", this.testVar2.power_now)
     console.log("this is a power now test from exampleData", this.exampleDataVar.power_now)
 
     let appInfo = "";
     this.getDataHttp('../assets/snapshot.json').subscribe(
       (data: any) => {
         var test = data;
-        console.log("I CANT SEE DATA HERE: ", test);
+        console.log("snapshot data: ", test);
         this.testVar3 = JSON.parse(JSON.stringify(test));
         console.log("this is testVar3", this.testVar3)
         console.log("this is testVar3", this.testVar3.power_now)
