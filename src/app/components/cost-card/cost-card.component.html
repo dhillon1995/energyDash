@@ -8,8 +8,15 @@
             </div>
         </mat-grid-tile>
 
+        
+
         <mat-grid-tile colspan=1>
             <img src="assets/img/sterling.svg" height="32px">
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=3 rowspan=1>
+            
+
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
@@ -92,64 +99,25 @@
 
         </mat-grid-tile>
 
-    </mat-grid-list>
+        <mat-grid-tile colspan=1 rowspan=1>
+            
+            <div class="subHeading">Electrack</div>
 
-    <mat-grid-list cols="4" rowHeight="36px">
-        
-        <mat-grid-tile colspan=4>
-            <div class="cardTitle">
-                <h3>Instantaneous Readings</h3>
-            </div>
         </mat-grid-tile>
 
-        <mat-grid-tile colspan=1>
-            <div class="subHeading">
-                Solar
+        <mat-grid-tile colspan=1 rowspan=1>
+            
+            <div class="up">
+                <mat-icon [inline]="true">arrow_upward</mat-icon>
             </div>
+
         </mat-grid-tile>
 
-        <mat-grid-tile colspan=1>
-            <div class="wattUnit">
-                {{this.testVar3.solar_now}}
-            </div>
-        </mat-grid-tile>
+        <mat-grid-tile colspan=1 rowspan=1>
+            
+            <div class="subHeading">{{this.testVar3.electrack_today}}</div>
 
-        <mat-grid-tile colspan=1>
-            <div class="subHeading">
-                Property
-            </div>
         </mat-grid-tile>
-
-        <mat-grid-tile colspan=1>
-            <div class="wattUnit">
-                {{this.testVar3.property_instant}}
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1>
-            <div class="subHeading">
-                House
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1>
-            <div class="wattUnit">
-                {{this.testVar3.house_instant}}
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1>
-            <div class="subHeading">
-                Office
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1>
-            <div class="wattUnit">
-                {{this.testVar3.office_now}}
-            </div>
-        </mat-grid-tile>
-
 
     </mat-grid-list>
 
