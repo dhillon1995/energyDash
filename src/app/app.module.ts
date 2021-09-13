@@ -26,7 +26,14 @@ import { MapcardComponent } from './components/mapcard/mapcard.component';
 import { IframeComponent } from './components/iframe/iframe.component';
 import { HttpClient, HttpClientModule }    from '@angular/common/http';
 
+import { FusionChartsModule } from "angular-fusioncharts";
 
+// Import FusionCharts library and chart modules
+import * as FusionCharts from "fusioncharts";
+import * as charts from "fusioncharts/fusioncharts.charts";
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
+FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -57,6 +64,7 @@ import { HttpClient, HttpClientModule }    from '@angular/common/http';
     MatGridListModule,
     MatDatepickerModule,
     HttpClientModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
