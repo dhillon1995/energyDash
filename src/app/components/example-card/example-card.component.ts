@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import testData from "../../../../../dataTest/dataTest.json"
+//removal of file import test
+//test
+
 import exampleData from "../../../assets/snapshotExample.json"
 import testData2 from "../../../assets/snapshot.json"
 
