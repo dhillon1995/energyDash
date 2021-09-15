@@ -1,7 +1,7 @@
 <div class="pagecontainer">
   <div class="tabContainer">
 
-    <mat-tab-group headerPosition="above" [selectedIndex]="1">
+    <mat-tab-group  mat-align-tabs="center" headerPosition="above" [selectedIndex]="1">
       <mat-tab disabled>
         <ng-template mat-tab-label>
           <img class="phoneticaLogo" src="assets/img/phoneticaLogo.png" alt="NA">
@@ -90,12 +90,22 @@
               &nbsp;&nbsp;Carbon Footprint
           </div>
         </ng-template>
-    
-        Content 3
       </mat-tab>
-    </mat-tab-group>
 
-    <app-testhome></app-testhome>
+      <mat-tab disabled>
+        <ng-template mat-tab-label>
+          <div class="hover">
+            <div class="icon">
+              <mat-icon>warning</mat-icon>
+            </div>
+              &nbsp;&nbsp;Test Tab
+          </div>
+        </ng-template>
+        <app-testhome></app-testhome>
+        <app-graphtest></app-graphtest>
+      </mat-tab>
+
+    </mat-tab-group>
   </div>
   
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-powertab',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PowertabComponent implements OnInit {
 
-  constructor() { }
+  uri = "goboldygook";
+  res : any
+
+  constructor(private domSanitizer: DomSanitizer) {
+    this.res = domSanitizer.bypassSecurityTrustUrl(this.uri);
+  }
+
 
   ngOnInit(): void {
   }

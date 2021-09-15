@@ -1,6 +1,6 @@
 <mat-card class="exampleCard">
 
-    <mat-grid-list cols="2" rowHeight="30px">
+    <mat-grid-list cols="2" rowHeight="40px">
         
         <mat-grid-tile colspan=1 rowspan=1>
 
@@ -15,13 +15,14 @@
 
 
         <mat-grid-tile colspan=2 rowspan=7>
-            <mat-card class="graphCard">
-                <img class="graph" src="assets/img/heatGraph.PNG">
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=2 rowspan=3>
-                <img class="slide" src="assets/img/heatSlider.PNG">
+                <fusioncharts
+                width="400"
+                height="250"
+                [type]="type"
+                [dataFormat]="dataFormat"
+                [dataSource]="dataSource"
+                >
+                </fusioncharts>
         </mat-grid-tile>
                 
     </mat-grid-list>

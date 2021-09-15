@@ -51,9 +51,14 @@
 
         <mat-grid-tile colspan=4 rowspan=24>
             <mat-card>
-                <div class="chart">
-                    <img class="graph" src="assets/img/cost.PNG">
-                </div>
+                <fusioncharts
+                width="1200"
+                height="500"
+                type="Column2d"
+                [dataSource]="dataSource"
+                >
+                </fusioncharts>
+
             </mat-card>
             
         </mat-grid-tile>

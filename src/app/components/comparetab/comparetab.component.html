@@ -54,21 +54,18 @@
             
         </mat-grid-tile>
 
-        <mat-grid-tile colspan=3 rowspan=24>
+        <mat-grid-tile colspan=5 rowspan=26>
             <mat-card>
-                <div class="chart">
-                    <img class="graph" src="assets/img/hood.PNG">
-                </div>
-            </mat-card>
-            
-        </mat-grid-tile>
+            <fusioncharts
+            width="1400"
+            height="600"
+            [type]="type"
+            [dataFormat]="dataFormat"
+            [dataSource]="dataSource"
+            >
+            </fusioncharts>
+        </mat-card>
 
-        <mat-grid-tile colspan=2 rowspan=24>
-            <mat-card>
-                <div class="chart">
-                    <img class="max" src="assets/img/max.PNG">
-                </div>
-            </mat-card>
             
         </mat-grid-tile>
 

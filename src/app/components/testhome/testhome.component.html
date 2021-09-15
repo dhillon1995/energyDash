@@ -6,12 +6,12 @@ alt="test png"
 height="40"
 width="20"
 >
+<app-dialtest></app-dialtest>
 
-<fusioncharts
-  [width]="width"
-  [height]="height"
-  [type]="type"
-  [dataFormat]="dataFormat"
-  [dataSource]="dataSource"
->
-</fusioncharts>
+  <fusioncharts
+    width="700"
+    height="400"
+    type="Column2d"
+    [dataSource]="dataSource"
+  >
+  </fusioncharts>

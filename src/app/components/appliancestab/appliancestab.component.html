@@ -54,12 +54,17 @@
         </mat-grid-tile>
 
 
-        <mat-grid-tile colspan=4 rowspan=24>
+        <mat-grid-tile colspan=8 rowspan=26>
 
             <mat-card>
-                <div class="chart">
-                    <img class="graph" src="assets/img/appliance.PNG">
-                </div>
+                <fusioncharts
+                width="1200"
+                height="600"
+                [type]="type"
+                [dataFormat]="dataFormat"
+                [dataSource]="dataSource"
+                >
+                </fusioncharts>
             </mat-card>
             
         </mat-grid-tile>

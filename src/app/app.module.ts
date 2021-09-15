@@ -32,8 +32,13 @@ import { FusionChartsModule } from "angular-fusioncharts";
 import * as FusionCharts from "fusioncharts";
 import * as charts from "fusioncharts/fusioncharts.charts";
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import * as PowerCharts from "fusioncharts/fusioncharts.powercharts";
+import * as FusionWidgets from "fusioncharts/fusioncharts.widgets";
+import { GraphtestComponent } from './components/graphtest/graphtest.component';
+import { DialtestComponent } from './components/dialtest/dialtest.component';
+import { SafeUrlPipe } from './safe-url.pipe';
 
-FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
+FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, FusionTheme);
 
 @NgModule({
   declarations: [
@@ -52,7 +57,10 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
     AppliancestabComponent,
     TesthomeComponent,
     MapcardComponent,
-    IframeComponent
+    IframeComponent,
+    GraphtestComponent,
+    DialtestComponent,
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +72,7 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
     MatGridListModule,
     MatDatepickerModule,
     HttpClientModule,
-    FusionChartsModule
+    FusionChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
