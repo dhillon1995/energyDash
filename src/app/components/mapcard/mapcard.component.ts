@@ -21,6 +21,12 @@ const data = {
         minvalue: "70",
         maxvalue: "85",
         label: "High Usage"
+      },
+      {
+        code: "#ffffff",
+        minvalue: "70",
+        maxvalue: "85",
+        label: "No Usage"
       }
     ]
   },
@@ -29,189 +35,189 @@ const data = {
       data: [
         {
           rowid: "W1",
-          columnid: "M",
+          columnid: "F",
           displayvalue: "1st",
           colorrangelabel: "Medium Usage"
         },
         {
           rowid: "W1",
-          columnid: "Tu",
+          columnid: "Sa",
           displayvalue: "2nd",
           colorrangelabel: "Medium Usage"
         },
         {
           rowid: "W1",
-          columnid: "W",
+          columnid: "Su",
           displayvalue: "3rd",
           colorrangelabel: "Medium Usage"
         },
         {
-          rowid: "W1",
-          columnid: "Th",
+          rowid: "W2",
+          columnid: "M",
           displayvalue: "4th",
           colorrangelabel: "Medium Usage"
         },
         {
-          rowid: "W1",
-          columnid: "F",
+          rowid: "W2",
+          columnid: "Tu",
           displayvalue: "5th",
           colorrangelabel: "Low Usage"
         },
         {
-          rowid: "W1",
-          columnid: "Sa",
+          rowid: "W2",
+          columnid: "W",
           displayvalue: "6th",
           colorrangelabel: "Medium Usage"
         },
         {
-          rowid: "W1",
-          columnid: "Su",
+          rowid: "W2",
+          columnid: "Th",
           displayvalue: "7th",
           colorrangelabel: "High Usage"
         },
         {
           rowid: "W2",
-          columnid: "M",
+          columnid: "F",
           displayvalue: "8th",
           colorrangelabel: "Medium Usage"
         },
         {
           rowid: "W2",
-          columnid: "Tu",
+          columnid: "Sa",
           displayvalue: "9th",
           colorrangelabel: "Low Usage"
         },
         {
           rowid: "W2",
-          columnid: "W",
+          columnid: "Su",
           displayvalue: "10th",
           colorrangelabel: "Medium Usage"
         },
         {
-          rowid: "W2",
-          columnid: "Th",
+          rowid: "W3",
+          columnid: "M",
           displayvalue: "11th",
           colorrangelabel: "High Usage"
         },
         {
-          rowid: "W2",
-          columnid: "F",
+          rowid: "W3",
+          columnid: "Tu",
           displayvalue: "12th",
           colorrangelabel: "Low Usage"
         },
         {
-          rowid: "W2",
-          columnid: "Sa",
+          rowid: "W3",
+          columnid: "W",
           displayvalue: "13th",
-          colorrangelabel: "Medium Usage"
+          colorrangelabel: "No Usage"
         },
         {
-          rowid: "W2",
-          columnid: "Su",
+          rowid: "W3",
+          columnid: "Th",
           displayvalue: "14th",
-          colorrangelabel: "High Usage"
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W3",
-          columnid: "M",
+          columnid: "F",
           displayvalue: "15th",
-          colorrangelabel: "High Usage"
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W3",
-          columnid: "Tu",
+          columnid: "Sa",
           displayvalue: "16th",
-          colorrangelabel: "Medium Usage"
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W3",
-          columnid: "W",
+          columnid: "Su",
           displayvalue: "17th",
-          colorrangelabel: "Low Usage"
+          colorrangelabel: "No Usage"
         },
         {
-          rowid: "W3",
-          columnid: "Th",
+          rowid: "W4",
+          columnid: "M",
           displayvalue: "18th",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "F",
-          displayvalue: "19th",
-          colorrangelabel: "Low Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "Sa",
-          displayvalue: "20th",
-          colorrangelabel: "High Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "Su",
-          displayvalue: "21th",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "M",
-          displayvalue: "22th",
-          colorrangelabel: "High Usage"
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W4",
           columnid: "Tu",
-          displayvalue: "23th",
-          colorrangelabel: "Low Usage"
+          displayvalue: "19th",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W4",
           columnid: "W",
-          displayvalue: "24th",
-          colorrangelabel: "Medium Usage"
+          displayvalue: "20th",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W4",
           columnid: "Th",
-          displayvalue: "25th",
-          colorrangelabel: "High Usage"
+          displayvalue: "21st",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W4",
           columnid: "F",
-          displayvalue: "26th",
-          colorrangelabel: "Medium Usage"
+          displayvalue: "22nd",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W4",
           columnid: "Sa",
-          displayvalue: "27th",
-          colorrangelabel: "Low Usage"
+          displayvalue: "23rd",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W4",
           columnid: "Su",
-          displayvalue: "28th",
-          colorrangelabel: "High Usage"
+          displayvalue: "24th",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W5",
           columnid: "M",
-          displayvalue: "29th",
-          colorrangelabel: "Medium Usage"
+          displayvalue: "25th",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W5",
           columnid: "Tu",
-          displayvalue: "30th",
-          colorrangelabel: "Low Usage"
+          displayvalue: "26th",
+          colorrangelabel: "No Usage"
         },
         {
           rowid: "W5",
           columnid: "W",
-          displayvalue: "31th",
-          colorrangelabel: "Medium Usage"
+          displayvalue: "27th",
+          colorrangelabel: "No Usage"
+        },
+        {
+          rowid: "W5",
+          columnid: "Th",
+          displayvalue: "28th",
+          colorrangelabel: "No Usage"
+        },
+        {
+          rowid: "W5",
+          columnid: "F",
+          displayvalue: "29th",
+          colorrangelabel: "No Usage"
+        },
+        {
+          rowid: "W5",
+          columnid: "Sa",
+          displayvalue: "30th",
+          colorrangelabel: "No Usage"
+        },
+        {
+          rowid: "W5",
+          columnid: "Su",
+          displayvalue: "31st",
+          colorrangelabel: "No Usage"
         }
       ]
     }
@@ -279,6 +285,7 @@ const data = {
     subcaption: "",
     showvalues: "1",
     mapbycategory: "1",
+    showlegend: "0",
     plottooltext:
       "Average consumption on the $displayvalue is $colorrangelabel"
   }

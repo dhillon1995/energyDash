@@ -4,35 +4,36 @@ const data = {
   chart: {
     caption: "",
     lowerlimit: "0",
-    upperlimit: "100",
-    showvalue: "1",
-    numbersuffix: "%",
+    upperlimit: "300",
+    showvalue: "0",
+    numbersuffix: "kWh",
     theme: "fusion",
-    showtooltip: "0"
+    baseFontSize: "12",
+    showtooltip: "1",
   },
   colorrange: {
     color: [
       {
         minvalue: "0",
-        maxvalue: "50",
-        code: "#F2726F"
-      },
-      {
-        minvalue: "50",
         maxvalue: "75",
-        code: "#FFC533"
+        code: "#6da81e"
       },
       {
         minvalue: "75",
-        maxvalue: "100",
-        code: "#62B58F"
+        maxvalue: "200",
+        code: "#f6bc33"
+      },
+      {
+        minvalue: "200",
+        maxvalue: "300",
+        code: "#e24b1a"
       }
     ]
   },
   dials: {
     dial: [
       {
-        value: "81"
+        value: "300"
       }
     ]
   }
@@ -54,6 +55,15 @@ export class DialtestComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    setTimeout(() => {  
+      console.log("object test", data.dials.dial)
+      console.log("object test position 0", data.dials.dial[0])
+      data.dials.dial.push({value:"200"})
+      data.dials.dial.shift();
+      console.log("object test 2", data.dials.dial)
+     }, 2000);
+
   }
 
 }

@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 const data = {
   chart: {
     caption: "Todays Average temperature",
-    yaxisname: "Number of units sold",
-    subcaption: "2007-2016",
+    yaxisname: "Temperature in °C",
+    subcaption: "2021",
     legendposition: "Right",
     drawanchors: "0",
     showvalues: "0",
@@ -13,44 +13,52 @@ const data = {
   },
   data: [
     {
-      label: "2007",
-      value: "1380000"
+      label: "Jan",
+      value: "17"
     },
     {
-      label: "2008",
-      value: "1450000"
+      label: "Feb",
+      value: "19"
     },
     {
-      label: "2009",
-      value: "1610000"
+      label: "March",
+      value: "22"
     },
     {
-      label: "2010",
-      value: "1540000"
+      label: "April",
+      value: "23"
     },
     {
-      label: "2011",
-      value: "1480000"
+      label: "May",
+      value: "19"
     },
     {
-      label: "2012",
-      value: "1573000"
+      label: "June",
+      value: "21"
     },
     {
-      label: "2013",
-      value: "2232000"
+      label: "July",
+      value: "24"
     },
     {
-      label: "2014",
-      value: "2476000"
+      label: "August",
+      value: "26"
     },
     {
-      label: "2015",
-      value: "2832000"
+      label: "September",
+      value: "19"
     },
     {
-      label: "2016",
-      value: "3808000"
+      label: "October",
+      value: "17"
+    },
+    {
+      label: "November",
+      value: "16"
+    },
+    {
+      label: "December",
+      value: "15"
     }
   ]
 };

@@ -17,13 +17,13 @@
             <mat-card class="miniCard">
                 <div class="greenHighlight">{{this.testVar3.power_now}} / £{{this.costnow}}</div>
                 
-                <div class="subHeading">Current usage & cost phr</div>
+                <div class="subHeading">Current usage</div>
             </mat-card>
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=4>
             
-                <app-dialtest></app-dialtest>
+                <app-dial2></app-dial2>
             
         </mat-grid-tile>
 
@@ -37,7 +37,7 @@
 
         <mat-grid-tile rowspan=2>
             <mat-card class="miniCard">
-            <div class="nonstandardHighlight">{{this.testVar3.power_today}} / {{this.testVar3.cost_today}}</div>
+            <div class="nonstandardHighlight">{{this.testVar3.power_today}} / {{this.testVar3.tarrif_cost_total}}</div>
             
             <div class="subHeading">Today</div>
         </mat-card>
@@ -61,7 +61,7 @@
 
         <mat-grid-tile rowspan=2>
             <mat-card class="miniCard">
-            <div class="nonstandardHighlight">{{this.testVar3.power_thismonth}} / {{this.testVar3.projectedcost_thisweek}}</div>
+            <div class="nonstandardHighlight">{{this.testVar3.projected_thismonth}} / {{this.testVar3.costprojected_thismonth}}</div>
             
             <div class="subHeading">Projected this month</div>
         </mat-card>

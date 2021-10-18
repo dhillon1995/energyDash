@@ -41,3 +41,7 @@
 .max {
     min-height: 360px;
 }
+
+.tabcards {
+    max-height: 12px;
+}

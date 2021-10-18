@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import exampleData from "../../../assets/snapshotExample.json"
+import testData2 from "../../../assets/snapshot.json"
+
 
 @Component({
   selector: 'app-costtab',
@@ -8,116 +13,119 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class CosttabComponent implements OnInit {
+  
   dataSource: Object;
-  constructor() {
+
+  constructor(private http: HttpClient) {
+    
     //STEP 2 - Chart Data
     const chartData = [
       {
-        label: "1st Feb 2021",
+        label: "1st Feb",
         value: "290"
       },
       {
-        label: "2nd Feb 2021",
+        label: "2nd Feb",
         value: "260"
       },
       {
-        label: "3rd Feb 2021",
+        label: "3rd Feb",
         value: "180"
       },
       {
-        label: "4th Feb 2021",
+        label: "4th Feb",
         value: "140"
       },
       {
-        label: "5th Feb 2021",
+        label: "5th Feb",
         value: "115"
       },
       {
-        label: "6th Feb 2021",
+        label: "6th Feb",
         value: "100"
       },
       {
-        label: "7th Feb 2021",
+        label: "7th Feb",
         value: "30"
       },
       {
-        label: "8th Feb 2021",
+        label: "8th Feb",
         value: "180"
       },
       {
-        label: "9th Feb 2021",
+        label: "9th Feb",
         value: "260"
       },
       {
-        label: "10th Feb 2021",
+        label: "10th Feb",
         value: "30"
       },
       {
-        label: "11th Feb 2021",
+        label: "11th Feb",
         value: "115"
       },
       {
-        label: "12th Feb 2021",
+        label: "12th Feb",
         value: "180"
       },
       {
-        label: "13th Feb 2021",
+        label: "13th Feb",
         value: "30"
       },
       {
-        label: "14th Feb 2021",
+        label: "14th Feb",
         value: "115"
       },
       {
-        label: "15th Feb 2021",
+        label: "15th Feb",
         value: "180"
       },
       {
-        label: "16th Feb 2021",
+        label: "16th Feb",
         value: "30"
       },
       {
-        label: "17th Feb 2021",
+        label: "17th Feb",
         value: "260"
       },
       {
-        label: "18th Feb 2021",
+        label: "18th Feb",
         value: "30"
       },
       {
-        label: "19th Feb 2021",
+        label: "19th Feb",
         value: "180"
       },
       {
-        label: "21st Feb 2021",
+        label: "21st Feb",
         value: "30"
       },
       {
-        label: "22nd Feb 2021",
+        label: "22nd Feb",
         value: "260"
       },
       {
-        label: "23rd Feb 2021",
+        label: "23rd Feb",
         value: "30"
       },
       {
-        label: "24nd Feb 2021",
+        label: "24nd Feb",
         value: "180"
       },
       {
-        label: "25nd Feb 2021",
+        label: "25nd Feb",
         value: "30"
       },
       {
-        label: "26nd Feb 2021",
+        label: "26nd Feb",
         value: "180"
       },
       {
-        label: "27nd Feb 2021",
+        label: "27nd Feb",
         value: "30"
       },
       {
-        label: "28nd Feb 2021",
+        label: "28nd Feb",
         value: "260"
       }
     ];
@@ -128,12 +136,12 @@ export class CosttabComponent implements OnInit {
         //Set the chart caption
         caption: "Energy Consumption Cost of This Month",
         //Set the chart subcaption
-        subCaption: "February 2017",
+        subCaption: "February 2021",
         //Set the x-axis name
-        xAxisName: "Date",
+        xAxisName: "Date in 2021",
         //Set the y-axis name
-        yAxisName: "Costs in $",
-        numberSuffix: "$",
+        yAxisName: "Costs in <b>£</b>",
+        numberPrefix: "£",
         //Set the theme for your chart
         theme: "fusion"
       },
@@ -142,6 +150,54 @@ export class CosttabComponent implements OnInit {
     };
     this.dataSource = dataSource;
   }
+
+  testVar: any = (testData2 as any);
+
+  testVar2: any;
+
+  newVar: any;
+
+  exampleDataVar: any = (exampleData as any);
+
+  dialvalue: any = "89";
+
+  getDataHttp(url:string) {
+
+    return this.http.get(url);
+  }
+
+
   ngOnInit(): void {
+
+    console.log("Start timer");
+    setTimeout(() => {  
+      console.log("object test", this.dataSource)
+      //console.log("object test position 0", data.dials.dial[0])
+     // console.log("power_now 2", this.newVar.power_nowDial)
+     // data.dials.dial.push({value: this.newVar.power_nowDial})
+     // data.dials.dial.shift();
+      //console.log("object test 2", data.dials.dial)
+     // console.log("power_now 2", this.newVar.power_nowDial)
+     }, 2000);
+
+     console.log("breakdown Init")
+
+     this.testVar2 = JSON.parse(JSON.stringify(testData2));
+     console.log("this is a power now test from testVar2", this.testVar2.power_now)
+ 
+     let appInfo = "";
+     this.getDataHttp('../assets/snapshot.json').subscribe(
+       (data: any) => {
+         var test = data;
+         console.log("snapshot data: ", test);
+         this.newVar = JSON.parse(JSON.stringify(test));
+         console.log("this is newVar", this.newVar)
+         console.log("this is newVar", this.newVar.power_now)
+         console.log("this week test",this.newVar.power_thisweek)
+         //this.dialtestnum = 300//this.newVar.power_today2
+         console.log("dialtestnum ", this.newVar.power_now)
+       }
+     )
+
   }
 }

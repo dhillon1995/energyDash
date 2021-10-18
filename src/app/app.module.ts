@@ -25,6 +25,8 @@ import { TesthomeComponent } from './components/testhome/testhome.component';
 import { MapcardComponent } from './components/mapcard/mapcard.component';
 import { IframeComponent } from './components/iframe/iframe.component';
 import { HttpClient, HttpClientModule }    from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 import { FusionChartsModule } from "angular-fusioncharts";
 
@@ -37,6 +39,9 @@ import * as FusionWidgets from "fusioncharts/fusioncharts.widgets";
 import { GraphtestComponent } from './components/graphtest/graphtest.component';
 import { DialtestComponent } from './components/dialtest/dialtest.component';
 import { SafeUrlPipe } from './safe-url.pipe';
+import { Dial2Component } from './components/dial2/dial2.component';
+import { TestbarComponent } from './components/testbar/testbar.component';
+import { IframetestComponent } from './components/iframetest/iframetest.component';
 
 FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, FusionTheme);
 
@@ -61,6 +66,9 @@ FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, Fusi
     GraphtestComponent,
     DialtestComponent,
     SafeUrlPipe,
+    Dial2Component,
+    TestbarComponent,
+    IframetestComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +81,7 @@ FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, Fusi
     MatDatepickerModule,
     HttpClientModule,
     FusionChartsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

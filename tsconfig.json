@@ -7,6 +7,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "resolveJsonModule": true,

@@ -42,21 +42,21 @@ export class ExampleCardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("breakdown Init")
+    console.log("example card Init")
 
     this.testVar2 = JSON.parse(JSON.stringify(testData2));
-    console.log("this is a power now test from testVar3", this.testVar2.power_now)
-    console.log("this is a power now test from exampleData", this.exampleDataVar.power_now)
+    console.log("example card this is a power now test from testVar2", this.testVar2.power_now)
+    //console.log("this is a power now test from exampleData", this.exampleDataVar.power_now)
 
     let appInfo = "";
     this.getDataHttp('../assets/snapshot.json').subscribe(
       (data: any) => {
         var test = data;
-        console.log("snapshot data: ", test);
+        console.log("example card snapshot data: ", test);
         this.testVar3 = JSON.parse(JSON.stringify(test));
-        console.log("this is testVar3", this.testVar3)
-        console.log("this is testVar3", this.testVar3.power_now)
-        console.log("this week test",this.testVar3.power_thisweek)
+        console.log("example card this is testVar3", this.testVar3)
+        console.log("example card this is testVar3", this.testVar3.power_now)
+        console.log("example card this week test",this.testVar3.power_thisweek)
 
         //This weeks costs calculations
         let y = 15.3022
@@ -70,7 +70,7 @@ export class ExampleCardComponent implements OnInit {
         let costnowdivided = costnowlong/100000;
         this.costnow = costnowdivided.toFixed(2)
 
-        console.log("costnow", this.costnow)
+        console.log("example card costnow", this.costnow)
 
       }
     )

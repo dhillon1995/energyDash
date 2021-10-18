@@ -1,71 +1,83 @@
 <div class="container">
     <mat-card>
-    <mat-grid-list cols=5 rowHeight="24px">
-        <mat-grid-tile colspan=1 rowspan=3>
-            <div class="heading">
-                    My ratings
-            </div>
+    <mat-grid-list cols=12 rowHeight="26px">
+        <mat-grid-tile colspan=4 rowspan=4>
+                <mat-card class="titlecard">
+                    Comparison
+                </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="standardHeading">44.30 kWh</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="redHeading">51.46 kWh</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="redHeading">20%</div>
-            <div class="icon"><mat-icon>expand_less</mat-icon></div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="standardHeading">41.36 kWh</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Expected Usage</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Actual Usage</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Difference from expected</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Neighborhood average</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=3 rowspan=3>
-            <mat-card>
-                Scope selctor here
+        <mat-grid-tile colspan=2 rowspan=4>
+            <mat-card class="tabcardtest">
+                <mat-card-title-group>
+                    <div class="cardTitle">44.30 kWh</div>
+                </mat-card-title-group>
+                <mat-card-content class="tabcardtest_content">
+                    Expected Usage
+                </mat-card-content>
+                
             </mat-card>
-            
         </mat-grid-tile>
 
-        <mat-grid-tile colspan=2 rowspan=3>
-            <mat-card>
-                Area selector here
+        <mat-grid-tile colspan=2 rowspan=4>
+            <mat-card class="tabcardtest">
+                <mat-card-title-group>
+                    <div class="cardTitle">51.46 kWh</div>
+                </mat-card-title-group>
+                <mat-card-content class="tabcardtest_content">
+                    Actual Usage
+                </mat-card-content>
+                
             </mat-card>
-            
         </mat-grid-tile>
 
-        <mat-grid-tile colspan=5 rowspan=26>
-            <mat-card>
-            <fusioncharts
-            width="1400"
-            height="600"
-            [type]="type"
-            [dataFormat]="dataFormat"
-            [dataSource]="dataSource"
-            >
-            </fusioncharts>
-        </mat-card>
+        <mat-grid-tile colspan=2 rowspan=4>
+            <mat-card class="tabcardtest">
+                <mat-card-title-group>
+                    <div class="cardTitle">20%<mat-icon [inline]="true">expand_less</mat-icon></div>
+                </mat-card-title-group>
+                <mat-card-content class="tabcardtest_content">
+                    Difference from expected
+                </mat-card-content>
+                
+            </mat-card>
+        </mat-grid-tile>
 
+        <mat-grid-tile colspan=2 rowspan=4>
+            <mat-card class="tabcardtest">
+                <mat-card-title-group>
+                    <div class="cardTitle">44.30 kWh</div>
+                </mat-card-title-group>
+                <mat-card-content class="tabcardtest_content">
+                    Average across all sites
+                </mat-card-content>
+                
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=10 rowspan=26>
+            <mat-card>
+                <fusioncharts
+                width="1400"
+                height="600"
+                [type]="type"
+                [dataFormat]="dataFormat"
+                [dataSource]="dataSource"
+                >
+                </fusioncharts>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=2 rowspan=6>
+            <mat-card class="datepicker">
+               The date picker will be here 
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan=2 rowspan=18>
+            <mat-card class="rankingBoard">
+                This area will house scope filtering options for; costs, power usage, sites shown and more. 
+            </mat-card>
             
         </mat-grid-tile>
 
