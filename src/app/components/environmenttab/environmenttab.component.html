@@ -1,76 +1,69 @@
 <div class="container">
     <mat-card>
-    <mat-grid-list cols=5 rowHeight="24px">
-        <mat-grid-tile colspan=1 rowspan=3>
-            <div class="heading">
+        <mat-grid-list cols=5 rowHeight="24px">
+            <mat-grid-tile colspan=1 rowspan=3>
+                <div class="heading">
+                    <mat-card>
+                        Temperature
+                    </mat-card>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=2 rowspan=2>
+                <div class="subHeading">Outdoor Today</div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=1 rowspan=2>
+                <div class="subHeading">Indoor Today</div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=1 rowspan=2>
+                <div class="subHeading">Weather Now</div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=2 rowspan=2>
+                <div class="subHeading"><mat-card class="tabcards">14°C&nbsp;&nbsp;&nbsp;&nbsp;11°C</mat-card></div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=1 rowspan=2>
+                <div class="subHeading"><mat-card class="tabcards">13°C</mat-card></div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=1 rowspan=2>
+                <div class="icon">
+                    <mat-icon>light_mode</mat-icon>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=1 rowspan=3>
+                <div class="heading">
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=2 rowspan=2>
+                <div class="subHeading">Highest&nbsp;&nbsp;&nbsp;&nbsp;Lowest</div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=1 rowspan=2>
+                <div class="subHeading">Average</div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=1 rowspan=2>
+                <div class="subHeading">Sunny</div>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan=5 rowspan=26>
                 <mat-card>
-                    Temperature
+                        <fusioncharts
+                        width="1200"
+                        height="600"
+                        [type]="type"
+                        [dataFormat]="dataFormat"
+                        [dataSource]="dataSource"
+                        >
+                        </fusioncharts>
                 </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=2 rowspan=2>
-            <div class="subHeading">Outdoor Today</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Indoor Today</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Weather Now</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=2 rowspan=2>
-            <div class="subHeading"><mat-card class="tabcards">14°C&nbsp;&nbsp;&nbsp;&nbsp;11°C</mat-card></div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading"><mat-card class="tabcards">13°C</mat-card></div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="icon">
-                <mat-icon>light_mode</mat-icon>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=3>
-            <div class="heading">
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=2 rowspan=2>
-            <div class="subHeading">Highest&nbsp;&nbsp;&nbsp;&nbsp;Lowest</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Average</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="subHeading">Sunny</div>
-        </mat-grid-tile>
-
-
-        
-
-        <mat-grid-tile colspan=5 rowspan=26>
-
-            <mat-card>
-                    <fusioncharts
-                    width="1200"
-                    height="600"
-                    [type]="type"
-                    [dataFormat]="dataFormat"
-                    [dataSource]="dataSource"
-                    >
-                    </fusioncharts>
-            </mat-card>
-            
-        </mat-grid-tile>
-
-
-    </mat-grid-list>
-</mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card>
 </div>

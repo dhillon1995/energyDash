@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import  { InfluxService } from '../../shared/services/influx.service';
 
 const data = {
   chart: {
@@ -76,9 +78,32 @@ export class EnvironmenttabComponent implements OnInit {
   dataFormat = "json";
   dataSource = data;
 
-  constructor() { }
+  /** Execute a query and receive line table metadata and rows. */
+  constructor(private http: HttpClient, private _influxService: InfluxService) { }
 
   ngOnInit(): void {
+    this.getInfluxDBResult();
   }
 
+  getDataHttp(url:string) {
+    let header = new HttpHeaders({ "Access-Control-Allow-Origin":"*"});
+    const requestOptions = {  headers: header}; 
+    return this.http.get(url, requestOptions);
+  }
+
+  getInfluxDBResult() {
+    const tempQuery = `|> range(start: -10m)\
+                  |> filter(fn:(r) => r._field == "uplink_message_decoded_payload_averageTemperature_value" )`;
+    const luxQuery = `|> range(start: -10m)\
+                  |> filter(fn:(r) => r._field == "uplink_message_decoded_payload_battery" )`;
+
+    this._influxService.runInfluxQuery(tempQuery).then(
+      (res: any) => {
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

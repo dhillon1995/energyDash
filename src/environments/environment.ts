@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  InfluxDB_Url: "https://us-east-1-1.aws.cloud2.influxdata.com",
+  InfluxDB_Token: "WTEP2YugFLVzeztghgeekD-jELiiQ0IDrbiO3bJs7FEv4ThEfXWINrx9bCVS-gtXG34YjmdOU9zq109bmKGDqw==",
+  InfluxDB_Org: "bgpoc@stinchcombe.co.uk",
+  InfluxDB_Bucket: "bgoffice",
 };
 
 /*
