@@ -45,3 +45,104 @@
 .tabcards {
     max-height: 12px;
 }
+
+.sensor-1,.sensor-2,.sensor-3,.sensor-4,.sensor-5,.sensor-6,.sensor-7,.sensor-8,.sensor-9,.sensor-10,
+.sensor-11,.sensor-12,.sensor-13,.sensor-14,.sensor-15,.sensor-16,.sensor-17,.sensor-18,.sensor-19,.sensor-0{
+    position: absolute;
+    cursor: pointer;
+}
+
+.sensor-0 {
+    top: 6.4%;
+    left: 20.4%;
+}
+
+.sensor-1 {
+    top: 6.4%;
+    left: 29%;
+}
+
+.sensor-2 {
+    top: 6.4%;
+    left: 40%;
+}
+
+.sensor-3 {
+    top: 6.4%;
+    left: 50%;
+}
+
+.sensor-4 {
+    top: 12.4%;
+    right: 27%;
+}
+
+.sensor-5 {
+    top: 6.4%;
+    right: 6%;
+}
+
+.sensor-6 {
+    top: 41.4%;
+    left: 19.4%;
+}
+
+.sensor-7 {
+    top: 41.4%;
+    left: 37%;
+}
+
+.sensor-8 {
+    top: 41.4%;
+    right: 40%;
+}
+
+.sensor-9 {
+    left: 4.4%;
+    bottom: 10%;
+}
+
+.sensor-10 {
+    left: 11%;
+    bottom: 10%;
+}
+
+.sensor-11 {
+    left: 18%;
+    bottom: 10%;
+}
+
+.sensor-12 {
+    left: 33.4%;
+    bottom: 10%;
+}
+
+.sensor-13 {
+    right: 41%;
+    bottom: 10%;
+}
+
+.sensor-14 {
+    right: 37.4%;
+    bottom: 10%;
+}
+
+.sensor-15 {
+    right: 18%;
+    bottom: 14%;
+}
+
+.sensor-16 {
+    right: 15.2%;
+    bottom: 10%;
+}
+
+.sensor-17 {
+    left: 18%;
+    bottom: 10%;
+}
+
+.sensor-18 {
+    right: 3%;
+    bottom: 15%;;
+}

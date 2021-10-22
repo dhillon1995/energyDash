@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HometabComponent } from './components/hometab/hometab.component';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ExampleCardComponent } from './components/example-card/example-card.component';
 import { CostCardComponent } from './components/cost-card/cost-card.component';
 import { RatingCardComponent } from './components/rating-card/rating-card.component';
@@ -17,7 +17,7 @@ import { AppliancesCardComponent } from './components/appliances-card/appliances
 import { CarbonCardComponent } from './components/carbon-card/carbon-card.component';
 import { PowertabComponent } from './components/powertab/powertab.component';
 import { CosttabComponent } from './components/costtab/costtab.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ComparetabComponent } from './components/comparetab/comparetab.component';
 import { EnvironmenttabComponent } from './components/environmenttab/environmenttab.component';
 import { AppliancestabComponent } from './components/appliancestab/appliancestab.component';
@@ -25,9 +25,12 @@ import { TesthomeComponent } from './components/testhome/testhome.component';
 import { MapcardComponent } from './components/mapcard/mapcard.component';
 import { IframeComponent } from './components/iframe/iframe.component';
 import { HttpClient, HttpClientModule }    from '@angular/common/http';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+//import { MatDialogModule } from '@angular/material/dialog';
 import { FusionChartsModule } from "angular-fusioncharts";
 
 // Import FusionCharts library and chart modules
@@ -81,7 +84,14 @@ FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, Fusi
     MatDatepickerModule,
     HttpClientModule,
     FusionChartsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule
+    //MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

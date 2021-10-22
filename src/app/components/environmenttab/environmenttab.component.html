@@ -1,69 +1,120 @@
 <div class="container">
-    <mat-card>
-        <mat-grid-list cols=5 rowHeight="24px">
-            <mat-grid-tile colspan=1 rowspan=3>
-                <div class="heading">
-                    <mat-card>
-                        Temperature
-                    </mat-card>
-                </div>
-            </mat-grid-tile>
+	<mat-card class="cardContainer">
+		<mat-grid-list cols=5 rowHeight="20px">
+			<mat-grid-tile colspan=2 rowspan=3>
+				<button mat-raised-button (click)="changeViewType('day')" 
+								[color]="periodType=='Day'?'primary':'basic'">
+					Day
+				</button>
+				<button mat-raised-button (click)="changeViewType('week')"
+								[color]="periodType=='Week'?'primary':'basic'">
+					Week
+				</button>
+				<button mat-raised-button (click)="changeViewType('month')"
+								[color]="periodType=='Month'?'primary':'basic'">
+					Month
+				</button>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=2 rowspan=4>
+				<mat-form-field appearance="fill">
+				  <mat-label>Enter Period for View</mat-label>
+				  <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+				    <input matStartDate formControlName="start" placeholder="Start date">
+				    <input matEndDate formControlName="end" placeholder="End date">
+				  </mat-date-range-input>
+				  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				  <mat-date-range-picker #picker></mat-date-range-picker>
 
-            <mat-grid-tile colspan=2 rowspan=2>
-                <div class="subHeading">Outdoor Today</div>
-            </mat-grid-tile>
+				  <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+				  <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+				</mat-form-field>
+			</mat-grid-tile>
+		</mat-grid-list>
 
-            <mat-grid-tile colspan=1 rowspan=2>
-                <div class="subHeading">Indoor Today</div>
-            </mat-grid-tile>
+		<mat-grid-list cols="3" rowHeight="390px" gutterSize="10px">
+			<mat-grid-tile>
+				<mat-card (click)="zoomChart('temperature')">
+					<div *ngIf="!tempLoading;then tempProgress else tempChart"></div>
+					<ng-template #tempProgress>
+						<mat-progress-spinner
+				      class="example-margin"
+			        color="primary"
+			        mode="indeterminate"
+			        value="50">
+				    </mat-progress-spinner>
+					</ng-template>
 
-            <mat-grid-tile colspan=1 rowspan=2>
-                <div class="subHeading">Weather Now</div>
-            </mat-grid-tile>
+					<ng-template #tempChart>
+						<fusioncharts
+	            [type]="type"
+	            [dataFormat]="dataFormat"
+	            [dataSource]="tempDataSource"
+	        	>
+	          </fusioncharts>
+					</ng-template>
+				</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile>
+				<mat-card>
+					<div *ngIf="!humiLoading;then humiProgress else humiChart"></div>
+					<ng-template #humiProgress>
+						<mat-progress-spinner
+				      class="example-margin"
+			        color="primary"
+			        mode="indeterminate"
+			        value="50">
+				    </mat-progress-spinner>
+					</ng-template>
 
-            <mat-grid-tile colspan=2 rowspan=2>
-                <div class="subHeading"><mat-card class="tabcards">14°C&nbsp;&nbsp;&nbsp;&nbsp;11°C</mat-card></div>
-            </mat-grid-tile>
+					<ng-template #humiChart>
+						<fusioncharts
+	            [type]="type"
+	            [dataFormat]="dataFormat"
+	            [dataSource]="humiDataSource"
+	        	>
+	          </fusioncharts>
+					</ng-template>
+				</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile>
+				<mat-card>
+					<div *ngIf="!luxLoading;then luxProgress else luxChart"></div>
+					<ng-template #luxProgress>
+						<mat-progress-spinner
+				      class="example-margin"
+			        color="primary"
+			        mode="indeterminate"
+			        value="50">
+				    </mat-progress-spinner>
+					</ng-template>
 
-            <mat-grid-tile colspan=1 rowspan=2>
-                <div class="subHeading"><mat-card class="tabcards">13°C</mat-card></div>
-            </mat-grid-tile>
+					<ng-template #luxChart>
+						<fusioncharts
+	            [type]="type"
+	            [dataFormat]="dataFormat"
+	            [dataSource]="luxDataSource"
+	        	>
+	          </fusioncharts>
+					</ng-template>
+				</mat-card>
+			</mat-grid-tile>
+		</mat-grid-list>
 
-            <mat-grid-tile colspan=1 rowspan=2>
-                <div class="icon">
-                    <mat-icon>light_mode</mat-icon>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile colspan=1 rowspan=3>
-                <div class="heading">
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile colspan=2 rowspan=2>
-                <div class="subHeading">Highest&nbsp;&nbsp;&nbsp;&nbsp;Lowest</div>
-            </mat-grid-tile>
-
-            <mat-grid-tile colspan=1 rowspan=2>
-                <div class="subHeading">Average</div>
-            </mat-grid-tile>
-
-            <mat-grid-tile colspan=1 rowspan=2>
-                <div class="subHeading">Sunny</div>
-            </mat-grid-tile>
-
-            <mat-grid-tile colspan=5 rowspan=26>
-                <mat-card>
-                        <fusioncharts
-                        width="1200"
-                        height="600"
-                        [type]="type"
-                        [dataFormat]="dataFormat"
-                        [dataSource]="dataSource"
-                        >
-                        </fusioncharts>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </mat-card>
+		<mat-grid-list cols=5 rowHeight="24px">
+			<mat-grid-tile colspan=5 rowspan=26>
+				<mat-card>
+					<picture>
+					    <source media='(min-width:0px)' srcset="../../../assets/img/sensor.png">
+					    <img mat-card-image src="" alt="Photo of a Shiba Inu">
+					</picture>
+					<mat-card-content>
+						<img 
+							*ngFor="let item of sensorList; let i = index"
+							[ngClass]="'sensor-' + i"
+							src="../../../assets/img/temperature.png"/>
+					</mat-card-content>
+				</mat-card>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</mat-card>
 </div>
