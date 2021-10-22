@@ -30,7 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-//import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FusionChartsModule } from "angular-fusioncharts";
 
 // Import FusionCharts library and chart modules
@@ -45,6 +45,7 @@ import { SafeUrlPipe } from './safe-url.pipe';
 import { Dial2Component } from './components/dial2/dial2.component';
 import { TestbarComponent } from './components/testbar/testbar.component';
 import { IframetestComponent } from './components/iframetest/iframetest.component';
+import { ZoomchartComponent } from './components/zoomchart/zoomchart.component';
 
 FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, FusionTheme);
 
@@ -71,29 +72,30 @@ FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, Fusi
     SafeUrlPipe,
     Dial2Component,
     TestbarComponent,
-    IframetestComponent
+    IframetestComponent,
+    ZoomchartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FusionChartsModule,
     MatTabsModule,
     MatIconModule,
     MatCardModule,
     MatGridListModule,
     MatDatepickerModule,
     HttpClientModule,
-    FusionChartsModule,
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatProgressSpinnerModule
-    //MatDialogModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

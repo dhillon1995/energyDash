@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InfluxService } from '../../shared/services/influx.service';
 import { FloorplanService } from '../../shared/services/floorplan.service';
 import { FormGroup, FormControl } from '@angular/forms';
-// import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-// import { ZoomchartComponent } from '../zoomchart/zoomchart.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ZoomchartComponent } from '../zoomchart/zoomchart.component';
 
 const sensorList = [
 	{ id: '6119810', location:'-' },
@@ -58,7 +58,7 @@ export class EnvironmenttabComponent implements OnInit {
 		private http: HttpClient,
 		private _influxService: InfluxService,
 		private flooplanService: FloorplanService,
-		//public chartZoomDialog: MatDialog
+		public chartZoomDialog: MatDialog
 	) {
 		this.sensorList = sensorList;
 	}
@@ -317,28 +317,26 @@ export class EnvironmenttabComponent implements OnInit {
 	}
 
 	zoomChart(sensor: string) {
-		// switch(sensor) {
-		// 	case 'temperature':
-		// 		console.log("temperature");
-		// 		this.openZoomDialog(this.tempDataSource);
-		// 		break;
-		// 	case 'humidity':
-		// 		break;
-		// 	case 'light':
-		// 		break;
-		// }
+		switch(sensor) {
+			case 'temperature':
+				this.openZoomDialog(this.tempDataSource);
+				break;
+			case 'humidity':
+				this.openZoomDialog(this.humiDataSource);
+				break;
+			case 'light':
+				this.openZoomDialog(this.luxDataSource);
+				break;
+		}
 	}
 
-	// openZoomDialog(dataSource: any):void {
-	// 	const dialogRef = this.chartZoomDialog.open(ZoomchartComponent, {
-	// 		width:'800px',
-	// 		data: {
-	// 			animal: dataSource
-	// 		}
-	// 	});
-
- //    dialogRef.afterClosed().subscribe(
- //      data => console.log("Dialog output:", data)
- //    );    
-	// }
+	openZoomDialog(dataSource: any):void {
+		const dialogRef = this.chartZoomDialog.open(ZoomchartComponent, {
+			minWidth: 1400,
+			minHeight: 650,
+			data: {
+				dataSource: dataSource
+			}
+		});
+	}
 }

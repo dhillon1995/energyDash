@@ -1,21 +1,15 @@
-<!-- <div class="container">
-	<mat-card class="cardContainer">
-		<fusioncharts
+<div class="container">
+		<div align="end">
+			<button mat-button class="close-icon no-hover-effect" [mat-dialog-close]="true">
+			   <mat-icon>close</mat-icon>
+			</button>
+		</div>
+	  <fusioncharts
+	  	width="1200"
+	  	height="500"
 			type="msline"
 			dataFormat="json"
-			[dataSource]="dataSource"
+			[dataSource]="data.dataSource"
 			>
 		</fusioncharts>
-	</mat-card>
-</div>
- -->
-
- <h1 mat-dialog-title>Hi </h1>
-<div mat-dialog-content>
-  <p>What's your favorite color?</p>
-  
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button mat-dialog-close="true" cdkFocusInitial>Ok</button>
 </div>
