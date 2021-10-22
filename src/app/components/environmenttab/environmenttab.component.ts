@@ -66,15 +66,22 @@ export class EnvironmenttabComponent implements OnInit {
 		this.changeViewType('day');
 	}
 
+	addNewDate() {
+		console.log("ok");
+		console.log(this.range.value);
+		this.changeViewType('custom');
+	}
+
 	prepareTempDataSource() {
 		Object.assign(this.tempDataSource, {
 			chart: {
-				caption: `Temperature ${this.periodType} view`,
+				caption: `Temperature ${this.periodType} View`,
 				yaxisname: "Value",
 				showhovereffect: "1",
 				drawcrossline: "5",
 				plottooltext: " <b>$seriesName</b> value <b>$dataValue</b> at $label",
 				theme: "fusion",
+				drawAnchors: "0"
 			},
 		});
 	}
@@ -82,12 +89,13 @@ export class EnvironmenttabComponent implements OnInit {
 	prepareHumiDataSource() {
 		Object.assign(this.humiDataSource, {
 			chart: {
-				caption: `Humidity ${this.periodType} view`,
+				caption: `Humidity ${this.periodType} View`,
 				yaxisname: "Value",
 				showhovereffect: "1",
 				drawcrossline: "5",
 				plottooltext: " <b>$seriesName</b> value <b>$dataValue</b> at $label",
 				theme: "fusion",
+				drawAnchors: "0"
 			},
 		});
 	}
@@ -95,12 +103,13 @@ export class EnvironmenttabComponent implements OnInit {
 	prepareLuxDataSource() {
 		Object.assign(this.luxDataSource, {
 			chart: {
-				caption: `Light ${this.periodType} view`,
+				caption: `Light ${this.periodType} View`,
 				yaxisname: "Value",
 				showhovereffect: "1",
 				drawcrossline: "5",
 				plottooltext: " <b>$seriesName</b> value <b>$dataValue</b> at $label",
 				theme: "fusion",
+				drawAnchors: "0"
 			},
 		});
 	}
@@ -144,6 +153,13 @@ export class EnvironmenttabComponent implements OnInit {
 				this.luxLoading = false;
 				this.getMonthTypePeriod();
 				break;
+			case 'custom':
+				this.periodType = 'Custom Period';
+				this.tempLoading = false;
+				this.humiLoading = false;
+				this.luxLoading = false;
+				this.getCustomTypePeriod();
+				break;
 		}
 	}
 
@@ -159,6 +175,20 @@ export class EnvironmenttabComponent implements OnInit {
 		this.luxDataSource = {};
 		this.prepareLuxDataSource();
 		this.getChartData('light', 'day');
+	}
+
+	getCustomTypePeriod() {
+		this.tempDataSource = {};
+		this.prepareTempDataSource();
+		this.getChartData('temperature', 'custom');
+
+		this.humiDataSource = {};
+		this.prepareHumiDataSource();
+		this.getChartData('humidity', 'custom');
+
+		this.luxDataSource = {};
+		this.prepareLuxDataSource();
+		this.getChartData('light', 'custom');
 	}
 
 	getWeekTypePeriod() {
@@ -219,6 +249,14 @@ export class EnvironmenttabComponent implements OnInit {
 				break;
 			case 'month':
 				periodQuery = ["-30d", "1w"];
+				break;
+			case 'custom':
+				let start = new Date(this.range.value.start);
+				let end = new Date(this.range.value.end);
+				periodQuery = [
+					start.toISOString() + ', stop: ' + end.toISOString(),
+					"1d"
+				];
 				break;
 		}
 

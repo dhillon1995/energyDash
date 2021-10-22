@@ -155,10 +155,10 @@
 .example-tooltip-red {
   background: #b71c1c !important;
   width: 300px;
-  height: 100px;
+  height: 150px;
   font-size: 16px !important;
   color: black !important;
-  padding: 15px !important;
+  padding: 15px 10px !important;
   white-space: pre-line  !important;
   line-height: 1.8 !important;
   background-image: url("../../../assets/img/floorplanback.png") !important;
