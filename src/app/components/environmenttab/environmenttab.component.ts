@@ -1,7 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InfluxService } from '../../shared/services/influx.service';
-import { FloorplanService } from '../../shared/services/floorplan.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ZoomchartComponent } from '../zoomchart/zoomchart.component';
@@ -32,7 +31,8 @@ const sensorList = [
 @Component({
 	selector: 'app-environmenttab',
 	templateUrl: './environmenttab.component.html',
-	styleUrls: ['./environmenttab.component.css']
+	styleUrls: ['./environmenttab.component.css'],
+	encapsulation: ViewEncapsulation.None,
 })
 
 export class EnvironmenttabComponent implements OnInit {
@@ -57,16 +57,12 @@ export class EnvironmenttabComponent implements OnInit {
 	constructor(
 		private http: HttpClient,
 		private _influxService: InfluxService,
-		private flooplanService: FloorplanService,
 		public chartZoomDialog: MatDialog
 	) {
 		this.sensorList = sensorList;
 	}
 
 	ngOnInit(): void {
-		//this.getInfluxDBResult();
-		// this.sensorList = this.flooplanService.getSensorsData();
-		// this.convertSensorDataToFusionDataSource(this.sensorList);
 		this.changeViewType('day');
 	}
 
@@ -96,7 +92,6 @@ export class EnvironmenttabComponent implements OnInit {
 		});
 	}
 
-
 	prepareLuxDataSource() {
 		Object.assign(this.luxDataSource, {
 			chart: {
@@ -116,18 +111,14 @@ export class EnvironmenttabComponent implements OnInit {
 		return this.http.get(url, requestOptions);
 	}
 
-	customizeTooltip(arg) {
-		return {
-				text: "Sensor: " + arg.attribute("location") + " ft&#178"
-		};
-	}
-
-	convertSensorDataToFusionDataSource(list: any[]) {
-		this.convertTemperatureData(list, 'temperature');
-	}
-
-	convertTemperatureData(list: any[], flag: string) {
-
+	customizeTooltip(sensorData: any) {
+		return `
+			Location: ${sensorData.location}
+			Sensor ID: ${sensorData.id}
+			Temperature: ${Math.round((sensorData.temp + Number.EPSILON) * 100) / 100}
+			Humidity: ${Math.round((sensorData.humi + Number.EPSILON) * 100) / 100}
+			Light: ${Math.round((sensorData.lux + Number.EPSILON) * 100) / 100}
+		`;
 	}
 
 	changeViewType(flag:string) {
@@ -240,8 +231,12 @@ export class EnvironmenttabComponent implements OnInit {
 			this._influxService.runInfluxQuery(latestQuery).then((res: any) => {
 				let dataset: any[] = [];
 				let _dataset: any[] = [];
+				let _averageTemp: number = 0;
+				let _averageHumi: number = 0;
+				let _averageLux: number = 0;
 
 				if (res.length > 0) {
+
 					if (i == 0) {
 						let categories: any[] = [];
 						let _categories: any[] = [];
@@ -255,6 +250,18 @@ export class EnvironmenttabComponent implements OnInit {
 								value: item._value
 							}
 
+							switch(sensorType) {
+								case 'temperature':
+									_averageTemp += item._value;
+									break;
+								case 'humidity':
+									_averageHumi += item._value;
+									break;
+								case 'light':
+									_averageLux += item._value;
+									break;
+							}
+
 							categories.push(category);
 							dataset.push(set);
 						});
@@ -264,12 +271,15 @@ export class EnvironmenttabComponent implements OnInit {
 
 						switch(sensorType) {
 							case 'temperature':
+								Object.assign(sensor, { temp: _averageTemp/res.length});
 								Object.assign(this.tempDataSource, { categories: _categories }, {	dataset: _dataset	});
 								break;
 							case 'humidity':
+								Object.assign(sensor, { humi: _averageHumi/res.length});
 								Object.assign(this.humiDataSource, { categories: _categories }, {	dataset: _dataset	});
 								break;
 							case 'light':
+								Object.assign(sensor, { lux: _averageLux/res.length});
 								Object.assign(this.luxDataSource, { categories: _categories }, {	dataset: _dataset	});
 								break;
 						}
@@ -280,11 +290,24 @@ export class EnvironmenttabComponent implements OnInit {
 								value: item._value
 							}
 
+							switch(sensorType) {
+								case 'temperature':
+									_averageTemp += item._value;
+									break;
+								case 'humidity':
+									_averageHumi += item._value;
+									break;
+								case 'light':
+									_averageLux += item._value;
+									break;
+							}
+
 							dataset.push(set);
 						});
 
 						switch(sensorType) {
 							case 'temperature':
+								Object.assign(sensor, { temp: _averageTemp/res.length});
 								if (this.tempDataSource.hasOwnProperty('dataset')) {
 									this.tempDataSource.dataset.push({
 										seriesname: sensor.location, data: dataset
@@ -292,6 +315,7 @@ export class EnvironmenttabComponent implements OnInit {
 								}
 								break;
 							case 'humidity':
+								Object.assign(sensor, { humi: _averageHumi/res.length});
 								if (this.humiDataSource.hasOwnProperty('dataset')) {
 									this.humiDataSource.dataset.push({
 										seriesname: sensor.location, data: dataset
@@ -299,6 +323,7 @@ export class EnvironmenttabComponent implements OnInit {
 								}
 								break;
 							case 'light':
+								Object.assign(sensor, { lux: _averageLux/res.length});
 								if (this.luxDataSource.hasOwnProperty('dataset')) {
 									this.luxDataSource.dataset.push({
 										seriesname: sensor.location, data: dataset

@@ -31,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FusionChartsModule } from "angular-fusioncharts";
 
 // Import FusionCharts library and chart modules
@@ -93,7 +94,8 @@ FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, Fusi
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

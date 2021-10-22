@@ -97,6 +97,11 @@
     right: 40%;
 }
 
+.sensor-19 {
+    right: 23.4%;
+    bottom: 34%;;
+}
+
 .sensor-9 {
     left: 4.4%;
     bottom: 10%;
@@ -145,4 +150,16 @@
 .sensor-18 {
     right: 3%;
     bottom: 15%;;
+}
+
+.example-tooltip-red {
+  background: #b71c1c !important;
+  width: 300px;
+  height: 100px;
+  font-size: 16px !important;
+  color: black !important;
+  padding: 15px !important;
+  white-space: pre-line  !important;
+  line-height: 1.8 !important;
+  background-image: url("../../../assets/img/floorplanback.png") !important;
 }

@@ -111,6 +111,8 @@
 						<img 
 							*ngFor="let item of sensorList; let i = index"
 							[ngClass]="'sensor-' + i"
+							[matTooltip]="customizeTooltip(item)"
+        			matTooltipClass="example-tooltip-red"
 							src="../../../assets/img/temperature.png"/>
 					</mat-card-content>
 				</mat-card>
