@@ -1,22 +1,49 @@
 <mat-card class="ratingCard">
-
-    <mat-grid-list cols="2" rowHeight="21px">
-        
+    <mat-grid-list cols="2" rowHeight="28px">
         <mat-grid-tile colspan=1 rowspan=2>
-            <div class="cardTitle">
-                <h2>Comparison</h2>
-            </div>
+            <h2>Comparison</h2>
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=2>
             <img src="assets/img/compare.svg" height="30px">
         </mat-grid-tile>
 
-        <mat-grid-tile colspan=2 rowspan=6>
+        <mat-grid-tile colspan=2 rowspan=4>
             <app-dialtest></app-dialtest>
         </mat-grid-tile>
 
-        <mat-grid-tile rowspan=4>
+        <mat-grid-tile colspan=1 rowspan=2 class="custom-card">
+            <mat-card class="miniCard">
+                <div class="redHighlight">0 kWh / £0.00</div>
+                
+                <div class="subHeading">Grid balance</div>
+            </mat-card>
+        </mat-grid-tile>
+
+         <mat-grid-tile colspan=1 rowspan=2 class="custom-card">
+            <mat-card class="miniCard">
+                <div class="redHighlight">0 kWh / £0.00</div>
+                
+                <div class="subHeading">Grid balance</div>
+            </mat-card>
+        </mat-grid-tile>
+
+         <mat-grid-tile colspan=1 rowspan=2 class="custom-card-below">
+            <mat-card class="miniCard">
+                <div class="greenHighlight">0 kWh / £0.00</div>
+                
+                <div class="subHeading">Grid balance</div>
+            </mat-card>
+        </mat-grid-tile>
+
+         <mat-grid-tile colspan=1 rowspan=2 class="custom-card-below">
+            <mat-card class="miniCard">
+                <div class="greenHighlight">0 kWh / £0.00</div>
+                
+                <div class="subHeading">Grid balance</div>
+            </mat-card>
+        </mat-grid-tile>
+        <!-- <mat-grid-tile rowspan=2>
             <mat-card class="miniCard">
                 <div class="greenHighlight">
                     5.6 kWh
@@ -25,7 +52,7 @@
             </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile rowspan=4>
+        <mat-grid-tile rowspan=2>
             <mat-card class="miniCard">
                 <div class="redHighlight">
                     6.2 kWh
@@ -34,19 +61,23 @@
             </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile rowspan=3>
-            <div class="up">
-                <mat-icon [inline]="true">arrow_downward</mat-icon>
-            </div>
+        <mat-grid-tile rowspan=2>
+            <mat-card class="miniCard">
+                <div class="greenHighlight">
+                    5.6 kWh
+                </div>
+                <div class="subHeading">This weeks consumption</div>
+            </mat-card>
         </mat-grid-tile>
-
-        <mat-grid-tile rowspan=3>
-            <div class="down">
-                <mat-icon [inline]="true">arrow_upward</mat-icon>
-            </div>
-        </mat-grid-tile>
-
-
+        
+        <mat-grid-tile rowspan=2>
+            <mat-card class="miniCard">
+                <div class="redHighlight">
+                    6.2 kWh
+                </div>
+                <div class="subHeading">Consumption this week last year</div>
+            </mat-card>
+        </mat-grid-tile> -->
     </mat-grid-list>
 
 </mat-card>

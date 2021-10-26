@@ -26,13 +26,15 @@ img {
 .redHighlight {
     color: red;
     position: inherit;
-    font-size: 26px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .greenHighlight {
     color: green;
     position: inherit;
-    font-size: 26px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .standardHighlight {
@@ -52,11 +54,10 @@ mat-card{
 }
 
 .miniCard {
-    max-height: 52px;
-    min-width: 100px;
-    max-width: 142px;
+    max-height: 28px;
+    min-width: 140px;
+    max-width: 140px;
     background-color: rgb(255, 255, 255);
-
 }
 
 .graphCard {
@@ -79,4 +80,18 @@ mat-card{
 .down{
     color: red;
     font-size: 40px;
+}
+
+.mat-grid-tile.custom-card {
+    left: 0px;
+    width: calc((50% - 0.5px) * 1 + 0px) !important;
+    top: calc(180px) !important;
+    height: calc(68px) !important;
+}
+
+.mat-grid-tile.custom-card-below {
+    left: 0px;
+    width: calc((50% - 0.5px) * 1 + 0px) !important;
+    top: calc(248px) !important;
+    height: calc(68px) !important;
 }
