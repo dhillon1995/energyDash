@@ -169,9 +169,7 @@ export class CosttabComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("Start timer");
     setTimeout(() => {  
-      console.log("object test", this.dataSource)
       //console.log("object test position 0", data.dials.dial[0])
      // console.log("power_now 2", this.newVar.power_nowDial)
      // data.dials.dial.push({value: this.newVar.power_nowDial})
@@ -180,22 +178,15 @@ export class CosttabComponent implements OnInit {
      // console.log("power_now 2", this.newVar.power_nowDial)
      }, 2000);
 
-     console.log("breakdown Init")
 
      this.testVar2 = JSON.parse(JSON.stringify(testData2));
-     console.log("this is a power now test from testVar2", this.testVar2.power_now)
  
      let appInfo = "";
      this.getDataHttp('../assets/snapshot.json').subscribe(
        (data: any) => {
          var test = data;
-         console.log("snapshot data: ", test);
          this.newVar = JSON.parse(JSON.stringify(test));
-         console.log("this is newVar", this.newVar)
-         console.log("this is newVar", this.newVar.power_now)
-         console.log("this week test",this.newVar.power_thisweek)
          //this.dialtestnum = 300//this.newVar.power_today2
-         console.log("dialtestnum ", this.newVar.power_now)
        }
      )
 

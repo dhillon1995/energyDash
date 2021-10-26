@@ -8,6 +8,8 @@ export const environment = {
   InfluxDB_Token: "WTEP2YugFLVzeztghgeekD-jELiiQ0IDrbiO3bJs7FEv4ThEfXWINrx9bCVS-gtXG34YjmdOU9zq109bmKGDqw==",
   InfluxDB_Org: "bgpoc@stinchcombe.co.uk",
   InfluxDB_Bucket: "bgoffice",
+  dayTariff: 15.3022,
+  nightTariff: 11.2552
 };
 
 /*

@@ -57,11 +57,8 @@ export class DialtestComponent implements OnInit {
   ngOnInit(): void {
 
     setTimeout(() => {  
-      console.log("object test", data.dials.dial)
-      console.log("object test position 0", data.dials.dial[0])
       data.dials.dial.push({value:"200"})
       data.dials.dial.shift();
-      console.log("object test 2", data.dials.dial)
      }, 2000);
 
   }

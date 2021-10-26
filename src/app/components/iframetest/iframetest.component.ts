@@ -10,19 +10,12 @@ import { DomSanitizer, SafeHtml, SafeUrl, SafeResourceUrl } from '@angular/platf
 export class IframetestComponent implements OnInit {
 
   url: string = "https://www.w3schools.com";
-
   sanitizedUrl: any;
-  
 
   constructor(private sanitizer: DomSanitizer) { 
     
     //this.sanitizer.bypassSecurityTrustUrl
     this.sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl(this.url)
-
-
-    console.log(this.sanitizedUrl);
-
-    
   }
 
   ngOnInit(): void {

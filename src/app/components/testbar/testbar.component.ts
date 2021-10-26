@@ -175,19 +175,9 @@ export class TestbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
     var dataTest = this.dataSource.data;
-
     var index = dataTest.findIndex(p => p.label == "1st");
-    
-    console.log("testbar data", dataTest)
-    console.log("index find data", index)
-    console.log("index to value", this.dataSource.data[index]['value'])
-    console.log("index to value", this.dataSource.data[0]['value'] = "5.28")
-    console.log("index to value", this.dataSource.data[index]['value'])
-
-    console.log("Start timer");
+   
     setTimeout(() => {  
        //never do this - I'm ashamed 
        this.dataSource.data[0]['value'] = this.newVar.tarrif_cost_total
@@ -222,28 +212,15 @@ export class TestbarComponent implements OnInit {
        this.dataSource.data[29]['value'] = this.newVar.cost_sep30
      }, 2000);
 
-
-    console.log("breakdown Init")
-
     this.testVar2 = JSON.parse(JSON.stringify(testData2));
-    console.log("this is a power now test from testVar2", this.testVar2.power_now)
 
     let appInfo = "";
     this.getDataHttp('../assets/snapshot.json').subscribe(
       (data: any) => {
         var test = data;
-        console.log("snapshot data: ", test);
         this.newVar = JSON.parse(JSON.stringify(test));
-        console.log("this is newVar", this.newVar)
-        console.log("this is newVar", this.newVar.power_now)
-        console.log("this week test",this.newVar.power_thisweek)
         //this.dialtestnum = 300//this.newVar.power_today2
-        console.log("dialtestnum ", this.newVar.power_now)
       }
     )
-
-    console.log("dial init test ", this.dataSource) 
-
   }
-
 }

@@ -67,8 +67,6 @@ export class EnvironmenttabComponent implements OnInit {
 	}
 
 	addNewDate() {
-		console.log("ok");
-		console.log(this.range.value);
 		this.changeViewType('custom');
 	}
 
