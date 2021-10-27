@@ -52,19 +52,20 @@ export class ExampleCardComponent implements OnInit {
 	}
 
 	async calcCurrentUsage() {
-		let CT19: any = await this.getCurrentUsageData(19);
-		let CT20: any = await this.getCurrentUsageData(20);
-		let CT21: any = await this.getCurrentUsageData(21);
-		console.log(CT19, CT20, CT21);
-		this.power_now = parseFloat(CT19[0]._value) + parseFloat(CT20[0]._value) + parseFloat(CT21[0]._value);
+		let CT22: any = await this.getCurrentUsageData(22);
+		let CT23: any = await this.getCurrentUsageData(23);
+		let CT24: any = await this.getCurrentUsageData(24);
+
+		this.power_now = parseFloat(CT22[0]._value) + parseFloat(CT23[0]._value) + parseFloat(CT24[0]._value);
 		this.power_now = (this.power_now).toFixed(2);
 
-		this.tariff = this.checkTariffTime(CT19[0]._time)? environment.dayTariff : environment.nightTariff;
+		this.tariff = this.checkTariffTime(CT22[0]._time)? environment.dayTariff : environment.nightTariff;
 		this.costnow = (this.power_now * this.tariff / 100000).toFixed(2);
 	}
 
 	calcTodayUsage() {
-		let today = new Date()
+		let today = new Date();
+
 		this.calcDayUsage(today.toISOString()).then((res:any) => {
 			this.power_today = res[0];
 			this.cost_today = res[1];
@@ -76,52 +77,47 @@ export class ExampleCardComponent implements OnInit {
 		let _time = calcDate +  'T07:00:00Z';
 
 		if (calcDate == (new Date()).toISOString().slice(0,10) && (new Date()).toISOString() < _time) {
-			let nightCT19: any = await this.getDayData(19, time, 'night');
-			let nightCT20: any = await this.getDayData(20, time, 'night');
-			let nightCT21: any = await this.getDayData(21, time, 'night');
+			let nightCT22: any = await this.getDayData(22, time, 'night');
+			let nightCT23: any = await this.getDayData(23, time, 'night');
+			let nightCT24: any = await this.getDayData(24, time, 'night');
 
-			if (nightCT19.length > 0 &&
-				nightCT20.length > 0 &&
-				nightCT21.length > 0) {
-				let power_day: any = parseFloat(nightCT19[0]._value) + 
-									 parseFloat(nightCT20[0]._value) +
-									 parseFloat(nightCT21[0]._value);
+			let nightCT22Data = nightCT22.length > 0 ? parseFloat(nightCT22[0]._value):0;
+			let nightCT23Data = nightCT23.length > 0 ? parseFloat(nightCT23[0]._value):0;
+			let nightCT24Data = nightCT24.length > 0 ? parseFloat(nightCT24[0]._value):0;
+			
+			let power_day: any = nightCT22Data + nightCT23Data + nightCT24Data;
+			power_day = (power_day / 1000).toFixed(2);
 
-				power_day = (power_day / 1000).toFixed(2);
-				let cost_day: any = environment.nightTariff * (parseFloat(nightCT19[0]._value) + parseFloat(nightCT20[0]._value) +parseFloat(nightCT21[0]._value));
-				cost_day = (cost_day / 100000).toFixed(2);
+			let cost_day: any = environment.nightTariff * power_day;
+			cost_day = (cost_day / 100000).toFixed(2);
 
-				return [power_day, cost_day];
-			}
+			return [power_day, cost_day];
+			
 		} else {
-			let dayCT19: any = await this.getDayData(19, time, 'day');
-			let dayCT20: any = await this.getDayData(20, time, 'day');
-			let dayCT21: any = await this.getDayData(21, time, 'day');
+			let dayCT22: any = await this.getDayData(22, time, 'day');
+			let dayCT23: any = await this.getDayData(23, time, 'day');
+			let dayCT24: any = await this.getDayData(24, time, 'day');
 
-			let nightCT19: any = await this.getDayData(19, time, 'night');
-			let nightCT20: any = await this.getDayData(20, time, 'night');
-			let nightCT21: any = await this.getDayData(21, time, 'night');
+			let nightCT22: any = await this.getDayData(22, time, 'night');
+			let nightCT23: any = await this.getDayData(23, time, 'night');
+			let nightCT24: any = await this.getDayData(24, time, 'night');
 
+			let dayCT22Data = dayCT22.length > 0 ? parseFloat(dayCT22[0]._value):0;
+			let dayCT23Data = dayCT23.length > 0 ? parseFloat(dayCT23[0]._value):0;
+			let dayCT24Data = dayCT24.length > 0 ? parseFloat(dayCT24[0]._value):0;
+			let nightCT22Data = nightCT22.length > 0 ? parseFloat(nightCT22[0]._value):0;
+			let nightCT23Data = nightCT23.length > 0 ? parseFloat(nightCT23[0]._value):0;
+			let nightCT24Data = nightCT24.length > 0 ? parseFloat(nightCT24[0]._value):0;
+			
+			let power_day: any = dayCT22Data + dayCT23Data + dayCT24Data + nightCT22Data + nightCT23Data + nightCT24Data;
+			power_day = (power_day / 1000).toFixed(2);
 
-			if (dayCT19.length > 0 &&
-				dayCT20.length > 0 &&
-				dayCT21.length > 0 &&
-				nightCT19.length > 0 &&
-				nightCT20.length > 0 &&
-				nightCT21.length > 0) {
-				let power_day: any = parseFloat(dayCT19[0]._value) + parseFloat(dayCT20[0]._value) +
-									 parseFloat(dayCT21[0]._value) + parseFloat(nightCT19[0]._value) + 
-									 parseFloat(nightCT20[0]._value) +parseFloat(nightCT21[0]._value);
-				power_day = (power_day / 1000).toFixed(2);
-
-				let cost_day: any = environment.dayTariff * (parseFloat(dayCT19[0]._value) + parseFloat(dayCT20[0]._value) + parseFloat(dayCT21[0]._value)) +
-									environment.nightTariff * (parseFloat(nightCT19[0]._value) + parseFloat(nightCT20[0]._value) +parseFloat(nightCT21[0]._value));
-				cost_day = (cost_day / 100000).toFixed(2);
-
-				return [power_day, cost_day];
-			}
+			let cost_day: any = environment.dayTariff * (dayCT22Data + dayCT23Data + dayCT24Data) +
+								environment.nightTariff * (nightCT22Data + nightCT23Data + nightCT24Data);
+			cost_day = (cost_day / 100000).toFixed(2);
+			return [power_day, cost_day];
 		}
-		
+
 		return [0, 0];
 	}
 
@@ -154,14 +150,17 @@ export class ExampleCardComponent implements OnInit {
 			totalCost += parseFloat(calcDayData[1]);
 		}
 
-		averageCost = totalPower / ranges.length;
-		averagePower = totalCost / ranges.length;
+		console.log("******************* Projected Week *******************");
+		console.log(totalPower, totalCost);
+
+		averagePower = totalPower / ranges.length;
+		averageCost = totalCost / ranges.length;
 
 		let today = new Date();
 		let day = today.getDay();
 
-		let remainDaysPower = (7 - day) * averageCost;
-		let remainDaysCost = (7 - day) * averagePower;
+		let remainDaysPower = (7 - day) * averagePower;
+		let remainDaysCost = (7 - day) * averageCost;
 
 		this.projected_power_week = (remainDaysPower + totalPower).toFixed(2);
 		this.projected_cost_week = (remainDaysCost + totalCost).toFixed(2);
@@ -171,32 +170,39 @@ export class ExampleCardComponent implements OnInit {
 		let today = new Date();
 		let date = today.getDate();
 
-		let totalPower: number   = 0.0;
-		let totalCost: number    = 0.0;
-		let averagePower: number = 0.0;
-		let averageCost: number  = 0.0;
+		let totalPower: any   = 0.0;
+		let totalCost: any    = 0.0;
+		let averagePower: any = 0.0;
+		let averageCost: any  = 0.0;
+		let dateArray: any = [];
 
-		for (let i = date; i >= 0; i--) {
+		for (let i = date - 1; i >= 0; i--) {
 			let resultDate = new Date();
 			resultDate.setDate(resultDate.getDate() - i);
-
-			let calcDayData = await this.calcDayUsage(resultDate.toISOString());
-			totalPower += parseFloat(calcDayData[0]);
-			totalCost  += parseFloat(calcDayData[1]);
+			dateArray.push(resultDate.toISOString());
 		}
 
-		averageCost  = averageCost /  date;
-		averagePower = averagePower / date;
-
+		for (let i = 0; i < dateArray.length; i++){
+			let calcDayData = await this.calcDayUsage(dateArray[i]);
+			totalPower += parseFloat(calcDayData[0]);
+			totalCost += parseFloat(calcDayData[1]);	
+		}
+		console.log("******************* Projected Month *******************");
+		console.log(totalPower, totalCost);
+		averageCost  = totalCost/date;
+		averagePower = totalPower/date;
+		console.log(averagePower, averageCost);
 		// Get last date
-		let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth()+1, 0);
+		let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 		let lastDate = lastDayOfMonth.getDate();
 
-		averagePower = averagePower * (lastDate - date);
-		averageCost = averageCost * (lastDate - date);
-
-		this.project_cost_month = (averageCost + totalCost).toFixed(2);
-		this.project_power_month = (averagePower + totalPower).toFixed(2);
+		let _averagePower = averagePower * (lastDate - date);
+		let _averageCost  = averageCost * (lastDate - date);
+    
+    console.log(lastDate-date);
+    console.log(_averagePower + totalPower, _averageCost + totalCost);
+		this.project_cost_month = (_averageCost + totalCost).toFixed(2);
+		this.project_power_month = (_averagePower + totalPower).toFixed(2);
 	}
 
 	getSofarRanges() {
@@ -205,7 +211,7 @@ export class ExampleCardComponent implements OnInit {
 		let dateArray: Array<string> = [];
 
 		if (day == 0) {
-			for (let i = 7; i > 0; i --) {
+			for (let i = 6; i >= 0; i --) {
 				let resultDate = new Date();
 				resultDate.setDate(resultDate.getDate() - i);
 				dateArray.push(resultDate.toISOString());
@@ -224,7 +230,7 @@ export class ExampleCardComponent implements OnInit {
 		const query = `|> range(start: -5m, stop: now())
 					|> filter(fn:(r) => r._field == "D6F00034F12A8_CT${num}")
 					|> aggregateWindow(every: 1d, fn: mean)`;
-		console.log(query);
+
 		return  this._influxService.runInfluxQuery(query);
 	}
 
@@ -258,22 +264,20 @@ export class ExampleCardComponent implements OnInit {
 				end   = calcDate + 'T06:59:59Z';
 			}
 		}
-		
 
 		const query = `|> range(start: ${start}, stop: ${end})
 									|> filter(fn:(r) => r._field == "D6F00034F12A8_CT${num}" and r._value > 0)
 									|> sum(column: "_value")`;
-
 		return  this._influxService.runInfluxQuery(query);
 	}
 
 	getTestData() {
-		const query = `|> range(start: -5m, stop: now())
-					|> filter(fn:(r) => r._field == "D6F00034F12A8_CT20")
-					|> aggregateWindow(every: 1d, fn: mean)`;
+		const query = `|> range(start: 2021-10-20T07:00:00Z, stop: 2021-10-20T23:59:59Z)
+									|> filter(fn:(r) => r._field == "D6F00034F12A8_CT22" and r._value > 0)
+									|> sum(column: "_value")`;
 		this._influxService.runInfluxQuery(query).then((res:any) => {
 			console.log(res);
-		})
+		});
 	}
 
 	ngAfterViewInit() {
@@ -282,6 +286,7 @@ export class ExampleCardComponent implements OnInit {
 		this.calcProjectedThisWeekUsage();
 		this.calcProjectedThisMonthUsage();
 		this.calcSofarThisWeekUsage();
+		// this.getTestData();
 	}
 
 	checkTariffTime(time: string): boolean {

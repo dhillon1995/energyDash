@@ -1,12 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import exampleData from "../../../assets/snapshotExample.json"
 import testData2 from "../../../assets/snapshot.json"
-
-
-
 
 @Component({
   selector: 'app-dial2',
@@ -20,6 +17,8 @@ export class Dial2Component implements OnInit {
   type = "angulargauge";
   dataFormat = "json";
   dataSource = data;
+
+  @Input() currentUsage: any;
 
   constructor(private http: HttpClient) { }
 
@@ -39,21 +38,7 @@ export class Dial2Component implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {  
-      data.dials.dial.push({value: this.newVar.power_nowDial})
-      data.dials.dial.shift();
-     }, 2000);
-
-    this.testVar2 = JSON.parse(JSON.stringify(testData2));
-
-    let appInfo = "";
-    this.getDataHttp('../assets/snapshot.json').subscribe(
-      (data: any) => {
-        var test = data;
-        this.newVar = JSON.parse(JSON.stringify(test));
-        //this.dialtestnum = 300//this.newVar.power_today2
-      }
-    )
+    
 
     //console.log("object tests", data.dials.dial)
     const jsontest =  {
@@ -70,8 +55,8 @@ export class Dial2Component implements OnInit {
    //Object.assign(jsontest.test, { test1 : "new" })
 
     //console.log(jsontest.test)
-
-    data.dials.dial.push({value:this.newVar.power_now})
+    console.log("dial usage", this.currentUsage);
+    data.dials.dial.push({value:this.currentUsage});
     data.dials.dial.shift();
     //data.dials.dial.shift();
     //console.log("object test position 0", data.dials.dial[0])

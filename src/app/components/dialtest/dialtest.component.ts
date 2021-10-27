@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 const data = {
   chart: {
@@ -52,12 +52,13 @@ export class DialtestComponent implements OnInit {
   dataFormat = "json";
   dataSource = data;
 
+  @Input() data: any;
   constructor() { }
 
   ngOnInit(): void {
 
     setTimeout(() => {  
-      data.dials.dial.push({value:"200"})
+      data.dials.dial.push({value: this.data})
       data.dials.dial.shift();
      }, 2000);
 

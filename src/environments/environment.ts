@@ -9,7 +9,8 @@ export const environment = {
   InfluxDB_Org: "bgpoc@stinchcombe.co.uk",
   InfluxDB_Bucket: "bgoffice",
   dayTariff: 15.3022,
-  nightTariff: 11.2552
+  nightTariff: 11.2552,
+  key: "a95e9d844b3ed5563ab65eae56709bfc"
 };
 
 /*

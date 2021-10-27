@@ -30,6 +30,7 @@
     "igniteui-angular-charts": "^12.1.1",
     "igniteui-angular-core": "^12.1.1",
     "influx": "^5.9.2",
+    "metoffice-fetch": "^1.0.3",
     "moment": "^2.29.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

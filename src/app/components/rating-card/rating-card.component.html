@@ -9,38 +9,38 @@
         </mat-grid-tile>
 
         <mat-grid-tile colspan=2 rowspan=4>
-            <app-dialtest></app-dialtest>
+            <app-dialtest [data]="month_power" *ngIf="month_power"></app-dialtest>
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=2 class="custom-card">
             <mat-card class="miniCard">
-                <div class="redHighlight">0 kWh / £0.00</div>
+                <div class="redHighlight"> {{ week_power}}kWh</div>
                 
-                <div class="subHeading">Grid balance</div>
+                <div class="subHeading">This week</div>
             </mat-card>
         </mat-grid-tile>
 
          <mat-grid-tile colspan=1 rowspan=2 class="custom-card">
             <mat-card class="miniCard">
-                <div class="redHighlight">0 kWh / £0.00</div>
+                <div class="redHighlight">{{last_week_power}}kWh</div>
                 
-                <div class="subHeading">Grid balance</div>
+                <div class="subHeading">Last year this week</div>
             </mat-card>
         </mat-grid-tile>
 
          <mat-grid-tile colspan=1 rowspan=2 class="custom-card-below">
             <mat-card class="miniCard">
-                <div class="greenHighlight">0 kWh / £0.00</div>
+                <div class="greenHighlight">{{month_power}}kWh</div>
                 
-                <div class="subHeading">Grid balance</div>
+                <div class="subHeading">This month</div>
             </mat-card>
         </mat-grid-tile>
 
          <mat-grid-tile colspan=1 rowspan=2 class="custom-card-below">
             <mat-card class="miniCard">
-                <div class="greenHighlight">0 kWh / £0.00</div>
+                <div class="greenHighlight">{{last_month_power}}kWh</div>
                 
-                <div class="subHeading">Grid balance</div>
+                <div class="subHeading">This month of last year</div>
             </mat-card>
         </mat-grid-tile>
         <!-- <mat-grid-tile rowspan=2>
