@@ -24,12 +24,11 @@ export class CostCardComponent implements OnInit {
 
 	kitchenFields: Array<string> = [
 		'D6F00034F12A8_CT1',
-		'D6F00034F12A8_CT2',
-		'D6F00034F12A8_CT3',
-		'D6F00034F12A8_CT4'
+		'D6F00034F12A8_CT3'
 	];
 
 	mbportFields: Array<string> = [
+		'D6F00034F12A8_CT5',
 		'D6F00034F12A8_CT8',
 		'D6F00034F12A8_CT9',
 		'D6F00034F12A8_CT10',

@@ -1,81 +1,80 @@
 <div class="container">
-    <mat-card>
-    <mat-grid-list cols=6 rowHeight="26px">
-        <mat-grid-tile colspan=2 rowspan=4>
-                <mat-card class="titlecard">
-                    What's my cost?
-                </mat-card>
-        </mat-grid-tile>
+	<mat-card>
+		<mat-grid-list cols=6 rowHeight="26px">
+			<mat-grid-tile colspan=2 rowspan=4>
+				<mat-card class="titlecard">
+					What's my cost?
+				</mat-card>
+			</mat-grid-tile>
 
-        <mat-grid-tile colspan=1 rowspan=4>
-            <mat-card class="tabcardtest">
-                <mat-card-title-group>
-                    <div class="cardTitle">£115.7</div>
-                </mat-card-title-group>
-                <mat-card-content class="tabcardtest_content">
-                    Last Month
-                </mat-card-content>
-                
-            </mat-card>
-        </mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<mat-card class="tabcardtest">
+						<mat-card-title-group>
+							<div class="cardTitle">£{{totalLastMonth}}</div>
+						</mat-card-title-group>
+						<mat-card-content class="tabcardtest_content">
+							Last Month
+						</mat-card-content>
+				</mat-card>
+			</mat-grid-tile>
 
-        <mat-grid-tile colspan=1 rowspan=4>
-            <mat-card class="tabcardtest">
-                <mat-card-title-group>
-                    <div class="cardTitle">£78.83</div>
-                </mat-card-title-group>
-                <mat-card-content class="tabcardtest_content">
-                    So far this month
-                </mat-card-content>
-                
-            </mat-card>
-        </mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<mat-card class="tabcardtest">
+					<mat-card-title-group>
+						<div class="cardTitle">£{{totalSoFarThisMonth}}</div>
+					</mat-card-title-group>
+					<mat-card-content class="tabcardtest_content">
+						So far this month
+					</mat-card-content>
+				</mat-card>
+			</mat-grid-tile>
 
-        <mat-grid-tile colspan=1 rowspan=4>
-            <mat-card class="tabcardtest">
-                <mat-card-title-group>
-                    <div class="cardTitle">£15.43</div>
-                </mat-card-title-group>
-                <mat-card-content class="tabcardtest_content">
-                    Perdicted this month
-                </mat-card-content>
-                
-            </mat-card>
-        </mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<mat-card class="tabcardtest">
+					<mat-card-title-group>
+						<div class="cardTitle">£{{totalProjectThisMonth}}</div>
+					</mat-card-title-group>
+					<mat-card-content class="tabcardtest_content">
+						Perdicted this month
+					</mat-card-content>
+				</mat-card>
+			</mat-grid-tile>
+		</mat-grid-list>
 
-        <mat-grid-tile colspan=1 rowspan=4>
-            <mat-card class="tabcardtest">
-                <mat-card-title-group>
-                    <div class="cardTitle">£17 (10.43%)</div>
-                </mat-card-title-group>
-                <mat-card-content class="tabcardtest_content">
-                    Projected savings this month
-                </mat-card-content>
-                
-            </mat-card>
-        </mat-grid-tile>
+		<!-- <mat-grid-list cols=6 rowHeight="24px">
+			<mat-grid-tile colspan=2 rowspan=8>
+				<mat-card>
+					<mat-card-title-group>
+						<div class="cardTitle">Pick Date</div>
+					</mat-card-title-group>
+					<mat-card-content class="tabcardtest_content">
+						<mat-form-field appearance="fill">
+							<mat-label>Choose a date</mat-label>
+							<input matInput [matDatepicker]="picker">
+							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+							<mat-datepicker #picker></mat-datepicker>
+						</mat-form-field>
+					</mat-card-content>
+				</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<mat-card class="rankingBoard">Time scope and filtering options here<br></mat-card>
+			</mat-grid-tile>
+		</mat-grid-list> -->
 
-        <mat-grid-tile colspan=5 rowspan=24>
-            <mat-card>
-                <app-testbar></app-testbar>
-
-            </mat-card>
-            
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <mat-card class="datepicker">
-               The date picker will be here 
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=20>
-            <mat-card class="rankingBoard">Time scope and filtering options here<br></mat-card>
-        </mat-grid-tile>
-
-       
-
-
-    </mat-grid-list>
+		<mat-grid-list cols=5 rowHeight="24px">
+			<mat-grid-tile colspan=5 rowspan=24>
+				<mat-card>
+					<fusioncharts
+					  width="1400"
+					  height="560"
+					  type="column2d"
+					  dataFormat="json"
+					  [dataSource]="dataSource"
+					>
+					</fusioncharts>
+				</mat-card>
+			</mat-grid-tile>
+		</mat-grid-list>
 </mat-card>
 </div>

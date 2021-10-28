@@ -30,7 +30,6 @@ export class RatingCardComponent implements OnInit {
           |> filter(fn:(r) => r._field == "D6F00034F12A8_CT22")
           |> sum(column: "_value")`;
     this._influxService.runInfluxQuery(query).then((res:any) => {
-      console.log("testestset");
       console.log(res);
     });
   }
@@ -49,7 +48,6 @@ export class RatingCardComponent implements OnInit {
     let lastEnd = new Date(today);
     lastEnd.setFullYear(lastEnd.getFullYear() - 1);
 
-    console.log(lastStart.toISOString(), lastEnd.toISOString());
     this.processInfluxData(lastStart.toISOString(), lastEnd.toISOString()).then((res:any) => {
       this.last_month_power = res;
     });

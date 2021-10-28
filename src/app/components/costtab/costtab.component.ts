@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import exampleData from "../../../assets/snapshotExample.json"
-import testData2 from "../../../assets/snapshot.json"
-
+import { InfluxService } from '../../shared/services/influx.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-costtab',
@@ -11,184 +9,173 @@ import testData2 from "../../../assets/snapshot.json"
   styleUrls: ['./costtab.component.css']
 })
 
-
 export class CosttabComponent implements OnInit {
-  
-  dataSource: Object;
 
-  constructor(private http: HttpClient) {
-    
-    //STEP 2 - Chart Data
-    const chartData = [
-      {
-        label: "1st Feb",
-        value: "290"
-      },
-      {
-        label: "2nd Feb",
-        value: "260"
-      },
-      {
-        label: "3rd Feb",
-        value: "180"
-      },
-      {
-        label: "4th Feb",
-        value: "140"
-      },
-      {
-        label: "5th Feb",
-        value: "115"
-      },
-      {
-        label: "6th Feb",
-        value: "100"
-      },
-      {
-        label: "7th Feb",
-        value: "30"
-      },
-      {
-        label: "8th Feb",
-        value: "180"
-      },
-      {
-        label: "9th Feb",
-        value: "260"
-      },
-      {
-        label: "10th Feb",
-        value: "30"
-      },
-      {
-        label: "11th Feb",
-        value: "115"
-      },
-      {
-        label: "12th Feb",
-        value: "180"
-      },
-      {
-        label: "13th Feb",
-        value: "30"
-      },
-      {
-        label: "14th Feb",
-        value: "115"
-      },
-      {
-        label: "15th Feb",
-        value: "180"
-      },
-      {
-        label: "16th Feb",
-        value: "30"
-      },
-      {
-        label: "17th Feb",
-        value: "260"
-      },
-      {
-        label: "18th Feb",
-        value: "30"
-      },
-      {
-        label: "19th Feb",
-        value: "180"
-      },
-      {
-        label: "21st Feb",
-        value: "30"
-      },
-      {
-        label: "22nd Feb",
-        value: "260"
-      },
-      {
-        label: "23rd Feb",
-        value: "30"
-      },
-      {
-        label: "24nd Feb",
-        value: "180"
-      },
-      {
-        label: "25nd Feb",
-        value: "30"
-      },
-      {
-        label: "26nd Feb",
-        value: "180"
-      },
-      {
-        label: "27nd Feb",
-        value: "30"
-      },
-      {
-        label: "28nd Feb",
-        value: "260"
-      }
-    ];
+  overallFields: Array<string> = [
+    'D6F00034F12A8_CT22',
+    'D6F00034F12A8_CT23',
+    'D6F00034F12A8_CT24'
+  ];
 
-    // STEP 3 - Chart Configuration
-    const dataSource = {
-      chart: {
-        //Set the chart caption
-        caption: "Energy Consumption Cost of This Month",
-        //Set the chart subcaption
-        subCaption: "February 2021",
-        //Set the x-axis name
-        xAxisName: "Date in 2021",
-        //Set the y-axis name
-        yAxisName: "Costs in <b>£</b>",
-        numberPrefix: "£",
-        //Set the theme for your chart
-        theme: "fusion"
-      },
-      // Chart Data - from step 2
-      data: chartData
-    };
-    this.dataSource = dataSource;
+  dataSource:any = {
+    chart: {
+      caption: "Energy Consumption Cost of This Month",
+      subCaption: "In MMbbl = One Million barrels",
+      xAxisName: "Date in 2021",
+      yAxisName: "Costs in <b>£</b>",
+      numberPrefix: "£",
+      theme: "fusion"
+    },
+    data: []
   }
+// caption: "Costs over September",
+//     subcaption: "In MMbbl = One Million barrels",
+//     xaxisname: "Country",
+//     yaxisname: "Reserves (MMbbl)",
+//     numberPrefix: "£",
+//     upperlimit: "5",
+//     theme: "fusion"
+  totalLastMonth: number = 0.0;
+  totalSoFarThisMonth: number = 0.0;
+  totalProjectThisMonth: number = 0.0;
 
-  testVar: any = (testData2 as any);
-
-  testVar2: any;
-
-  newVar: any;
-
-  exampleDataVar: any = (exampleData as any);
-
-  dialvalue: any = "89";
+  constructor(private http: HttpClient, private _influxService: InfluxService) { }
 
   getDataHttp(url:string) {
-
     return this.http.get(url);
   }
 
-
   ngOnInit(): void {
+    this.calcLastMonthCost();
+    this.calcSofarMonthCost();
+    this.getTestData();
+  }
 
-    setTimeout(() => {  
-      //console.log("object test position 0", data.dials.dial[0])
-     // console.log("power_now 2", this.newVar.power_nowDial)
-     // data.dials.dial.push({value: this.newVar.power_nowDial})
-     // data.dials.dial.shift();
-      //console.log("object test 2", data.dials.dial)
-     // console.log("power_now 2", this.newVar.power_nowDial)
-     }, 2000);
+  getTestData() {
+    const query = `|> range(start: 2021-10-01T00:00:00Z, stop: 2021-10-26T23:00:00Z)
+                   |> filter(fn:(r) => r._field == "D6F00034F12A8_CT23")
+                   |> hourSelection(start: 7, stop: 23)
+                   |> aggregateWindow(every: 1d, fn: sum)
+                   |> cumulativeSum(columns: ["_value"])`;
+    this._influxService.runInfluxQuery(query).then((res:any) => {
+      console.log(res);
+    });
+  }
 
+  calcprojectThisMonthCost() {
+    let today = new Date();
+    let currentDate = today.getDate();
+    let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+    let lastDate = lastDayOfMonth.getDate();
 
-     this.testVar2 = JSON.parse(JSON.stringify(testData2));
- 
-     let appInfo = "";
-     this.getDataHttp('../assets/snapshot.json').subscribe(
-       (data: any) => {
-         var test = data;
-         this.newVar = JSON.parse(JSON.stringify(test));
-         //this.dialtestnum = 300//this.newVar.power_today2
-       }
-     )
+    this.totalProjectThisMonth = this.totalSoFarThisMonth + (this.totalSoFarThisMonth/currentDate) * (lastDate - currentDate) ;
+    this.totalProjectThisMonth = Math.round((this.totalProjectThisMonth + Number.EPSILON) * 100) / 100;
+  }
 
+  async calcLastMonthCost() {
+    let date = new Date();
+    let firstDay = new Date(date.getFullYear(), date.getMonth(), 2).toISOString().slice(0, 10);
+    let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1).toISOString().slice(0, 10);
+    let total: any = 0.0;
+
+    console.log(firstDay, lastDay);
+    let range: string = `range(start: ${firstDay}, stop: ${lastDay})`;
+    for(let i = 0; i < this.overallFields.length; i++) {
+      let nightPower:any  = await this.runQuery(range, this.overallFields[i], false);
+      let dayPower:any  = await this.runQuery(range, this.overallFields[i], true);
+      total += nightPower[0]._value * environment.nightTariff + dayPower[0]._value * environment.dayTariff;
+    }
+
+    total = total / 100000;
+    this.totalLastMonth = Math.round((total + Number.EPSILON) * 100) / 100;
+  }
+
+  async calcSofarMonthCost() {
+    let ranges: Array<string> = this.getSoFarMonthTimeRange();
+    let totalSofar:number = 0.0;
+    for (let i = 0; i < ranges.length; i++) {
+      let cost: number = await this.getCostData(ranges[i]);
+      let label: string;
+
+      if (i == 0) {
+        label = '1st';
+      } else if ( i == 1) {
+        label = '2nd';
+      } else if ( i == 2) {
+        label = '3rd';
+      } else {
+        label = i + 1 + 'th';
+      }
+      let chartItem: any = {
+        label: label,
+        value: cost /100000
+      }
+
+      this.dataSource.data.push(chartItem);
+      totalSofar += cost;
+    }
+    totalSofar = totalSofar / 100000;
+    this.totalSoFarThisMonth = Math.round((totalSofar + Number.EPSILON) * 100) / 100;
+    this.calcprojectThisMonthCost();
+  }
+
+  async getCostData(range:string) {
+    let total:number = 0.0;
+
+    for (let i = 0; i < this.overallFields.length; i++) {
+      let nightPower: any = await this.runQuery(range, this.overallFields[i], false);
+      let dayPower: any = await this.runQuery(range, this.overallFields[i], true);
+
+      total += nightPower[0]._value * environment.nightTariff + dayPower[0]._value * environment.dayTariff;
+    }
+
+    return total;
+  }
+
+  runQuery(range: string, field: string, isDay:boolean) {
+    let query: any;
+
+    if (isDay) {
+      query = `|>${range}
+               |> filter(fn:(r) => r._field == "${field}")
+               |> hourSelection(start:7, stop:23)
+               |> sum(column: "_value")`;
+    } else {
+      query = `|>${range}
+               |> filter(fn:(r) => r._field == "${field}")
+               |> hourSelection(start:0, stop:7)
+               |> sum(column: "_value")`;
+    }
+    return  this._influxService.runInfluxQuery(query);
+  }
+
+  getSoFarMonthTimeRange() {
+    // let firstDay = new Date(date.getFullYear(), date.getMonth(), 2).toISOString().slice(0, 10);
+    // let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1).toISOString().slice(0, 10);
+    let days: Array<string> = this.getDaysSoFarMonth();
+    let ranges: any = [];
+
+    days.forEach((item:string) => {
+      ranges.push(
+        `range(start: ${item}, stop: ${item.slice(0, 10)}T23:59:59Z)`,
+      );
+    });
+
+    return ranges;
+  }
+
+  getDaysSoFarMonth() {
+    let _date = new Date()
+    let firstDay = new Date(_date.getFullYear(), _date.getMonth(), 2).toISOString().slice(0, 10);
+    let date = new Date(firstDay); 
+    let month = date.getMonth();
+    let days: Array<string> = [];
+
+    while (date.getMonth() === month && date <= _date) {
+      days.push(new Date(date).toISOString());
+      date.setDate(date.getDate() + 1);
+    }
+
+    return days;
   }
 }
