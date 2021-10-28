@@ -8,8 +8,8 @@ const data = {
     showvalue: "0",
     numbersuffix: "kWh",
     theme: "fusion",
-    baseFontSize: "12",
-    showtooltip: "1",
+    baseFontSize: "10",
+    showtooltip: "0",
   },
   colorrange: {
     color: [

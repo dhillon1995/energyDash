@@ -31,13 +31,65 @@ export class ComparetabComponent implements OnInit {
     },
     categories: [
       {
-        category:[]
+        category:[
+          { label: '1st'  },
+          { label: '2nd'  },
+          { label: '3rd'  },
+          { label: '4th'  },
+          { label: '5th'  }, 
+          { label: '6th'  },
+          { label: '7th'  },
+          { label: '8th'  },
+          { label: '9th'  },
+          { label: '10th' },
+          { label: '11th' },
+          { label: '12th' },
+          { label: '13th' },
+          { label: '14th' },
+          { label: '15th' },
+          { label: '16th' },
+          { label: '17th' },
+          { label: '18th' },
+          { label: '19th' },
+          { label: '20th' },
+          { label: '21th' },
+          { label: '22th' },
+          { label: '23th' },
+          { label: '24th' },
+          { label: '25th' }
+        ]
       }
     ],
     dataset:[
       {
         seriesname: "So far This Month",
-        data: []
+        data: [
+          { value: 271628.3 },
+          { value: 163793 },
+          { value: 163816 },
+          { value: 280840.2 },
+          { value: 290787.8 },
+          { value: 285509.9 },
+          { value: 281492.6 },
+          { value: 275576.5 },
+          { value: 189912.6 },
+          { value: 168663.7 },
+          { value: 298752.2 },
+          { value: 308040.2 },
+          { value: 299748.5 },
+          { value: 291935.7 },
+          { value: 271628.3 },
+          { value: 163793 },
+          { value: 163816 },
+          { value: 280840.2 },
+          { value: 290787.8 },
+          { value: 285509.9 },
+          { value: 281492.6 },
+          { value: 275576.5 },
+          { value: 189912.6 },
+          { value: 168663.7 },
+          { value: 279220 }
+        ]
       }
     ]
   }
@@ -55,7 +107,19 @@ export class ComparetabComponent implements OnInit {
 
   ngOnInit(): void {
     this.calcLastMonthPower();
-    this.calcSofarMonthPower();
+    //this.calcSofarMonthPower();
+    this.getTestData();
+  }
+
+  getTestData() {
+    let total: number = 0;
+    this.dataSource.dataset[0].data.forEach((item: any) => {
+      total += item.value
+    });
+    this.totalSoFarThisMonth = Math.round((total / 1000 + Number.EPSILON) * 100) / 100;
+
+    this.totalProjectThisMonth = this.totalSoFarThisMonth + this.totalSoFarThisMonth / 25 * 5;
+    this.totalProjectThisMonth = Math.round((this.totalProjectThisMonth + Number.EPSILON) * 100) / 100;
   }
 
   async calcLastMonthPower() {

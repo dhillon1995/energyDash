@@ -53,101 +53,121 @@
 }
 
 .sensor-0 {
-    top: 6.4%;
-    left: 20.4%;
+    width: 60px;
+    top: 7.4%;
+    left: 24%;
 }
 
 .sensor-1 {
-    top: 6.4%;
-    left: 29%;
+    width: 60px;
+    top: 7.4%;
+    left: 35%;
 }
 
 .sensor-2 {
-    top: 6.4%;
-    left: 40%;
+    width: 60px;
+    top: 7.4%;
+    left: 45.8%;
 }
 
 .sensor-3 {
-    top: 6.4%;
-    left: 50%;
+    width: 60px;
+    top: 7.4%;
+    left: 56%;
 }
 
 .sensor-4 {
+    width: 60px;
     top: 12.4%;
     right: 27%;
 }
 
 .sensor-5 {
-    top: 6.4%;
+    width: 60px;
+    top: 7.4%;
     right: 6%;
 }
 
 .sensor-6 {
+    width: 60px;
     top: 41.4%;
-    left: 19.4%;
+    left: 22.4%;
 }
 
 .sensor-7 {
+    width: 60px;
     top: 41.4%;
-    left: 37%;
+    left: 34%;
 }
 
 .sensor-8 {
+    width: 60px;
     top: 41.4%;
-    right: 40%;
+    right: 49%;
 }
 
 .sensor-19 {
-    right: 23.4%;
-    bottom: 34%;;
+    width: 60px;
+    right: 34.4%;
+    bottom: 45%;;
 }
 
 .sensor-9 {
+    width: 60px;
     left: 4.4%;
-    bottom: 10%;
+    bottom: 11.8%;
 }
 
 .sensor-10 {
+    width: 60px;
     left: 11%;
-    bottom: 10%;
+    bottom: 11.8%;
 }
 
 .sensor-11 {
+    width: 60px;
     left: 18%;
-    bottom: 10%;
+    bottom: 11.8%;
 }
 
 .sensor-12 {
-    left: 33.4%;
-    bottom: 10%;
+    width: 60px;
+    left: 38.4%;
+    bottom: 11.8%;
 }
 
 .sensor-13 {
-    right: 41%;
-    bottom: 10%;
+    width: 60px;
+    right: 40.8%;
+    bottom: 11.8%;
 }
 
 .sensor-14 {
+    width: 60px;
     right: 37.4%;
-    bottom: 10%;
+    bottom: 11.8%;
 }
 
 .sensor-15 {
+    width: 60px;
     right: 18%;
     bottom: 14%;
 }
 
 .sensor-16 {
+    width: 60px;
     right: 15.2%;
-    bottom: 10%;
+    bottom: 11.8%;
 }
 
 .sensor-17 {
-    left: 18%;
-    bottom: 10%;
+    width: 60px;
+    left: 28%;
+    bottom: 11.8%;
 }
 
 .sensor-18 {
+    width: 60px;
     right: 3%;
     bottom: 15%;;
 }

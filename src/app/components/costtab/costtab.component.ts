@@ -27,15 +27,35 @@ export class CosttabComponent implements OnInit {
       plottooltext: " <b>$seriesName</b> used <b>$dataValue</b> in $label",
       theme: "fusion"
     },
-    data: []
+    data: [
+      { label: '1st', value: 34.16329536},
+      { label: '2nd', value: 21.8394344},
+      { label: '3rd', value: 21.84225792},
+      { label: '4th', value: 35.08019647},
+      { label: '5th', value: 36.29110125}, 
+      { label: '6th', value: 35.70547217},
+      { label: '7th', value: 35.19107875},
+      { label: '8th', value: 34.58264751},
+      { label: '9th', value: 24.8269961},
+      { label: '10th', value: 22.45625994},
+      { label: '11th', value: 16.17792154},
+      { label: '12th', value: 38.28357045},
+      { label: '13th', value: 37.37884476},
+      { label: '14th', value: 36.44870514},
+      { label: '15th', value: 34.16329536},
+      { label: '16th', value: 21.8394344},
+      { label: '17th', value: 21.84225792},
+      { label: '18th', value: 35.08019647},
+      { label: '19th', value: 36.29110125},
+      { label: '20th', value: 35.70547217},
+      { label: '21th', value: 35.19107875},
+      { label: '22th', value: 34.58264751},
+      { label: '23th', value: 24.8269961},
+      { label: '24th', value: 22.45625994},
+      { label: '25th', value: 34.82148809}
+    ]
   }
-// caption: "Costs over September",
-//     subcaption: "In MMbbl = One Million barrels",
-//     xaxisname: "Country",
-//     yaxisname: "Reserves (MMbbl)",
-//     numberPrefix: "£",
-//     upperlimit: "5",
-//     theme: "fusion"
+
   totalLastMonth: number = 0.0;
   totalSoFarThisMonth: number = 0.0;
   totalProjectThisMonth: number = 0.0;
@@ -48,19 +68,19 @@ export class CosttabComponent implements OnInit {
 
   ngOnInit(): void {
     this.calcLastMonthCost();
-    this.calcSofarMonthCost();
+    // this.calcSofarMonthCost();
     this.getTestData();
   }
 
   getTestData() {
-    const query = `|> range(start: 2021-10-01T00:00:00Z, stop: 2021-10-26T23:00:00Z)
-                   |> filter(fn:(r) => r._field == "D6F00034F12A8_CT23")
-                   |> hourSelection(start: 7, stop: 23)
-                   |> aggregateWindow(every: 1d, fn: sum)`;
-
-    this._influxService.runInfluxQuery(query).then((res:any) => {
-      console.log(res);
+    let total: number = 0;
+    this.dataSource.data.forEach((item: any) => {
+      total += item.value
     });
+    this.totalSoFarThisMonth = Math.round((total + Number.EPSILON) * 100) / 100;
+
+    this.totalProjectThisMonth = this.totalSoFarThisMonth + this.totalSoFarThisMonth / 25 * 5;
+    this.totalProjectThisMonth = Math.round((this.totalProjectThisMonth + Number.EPSILON) * 100) / 100;
   }
 
   calcprojectThisMonthCost() {
