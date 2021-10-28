@@ -1,113 +1,92 @@
 <div class="container">
-    <mat-card>
-    <mat-grid-list cols=20 rowHeight="24px">
-        <mat-grid-tile colspan=6 rowspan=4>
-                <mat-card class="titlecard">
-                    Appliances
-                </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=14 rowspan=28>
-
-            <mat-card>
-                <fusioncharts
-                width="1200"
-                height="600"
-                [type]="type"
-                [dataFormat]="dataFormat"
-                [dataSource]="dataSource"
-                >
-                </fusioncharts>
-            </mat-card>
-            
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=6 rowspan=3>
-            <div class="subHeading"><mat-card class="subHeadingCard">Devices being used</mat-card></div>
-        </mat-grid-tile>
-        
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <div class="subHeading">
-                <mat-card class="iconcard">
-                    <mat-icon>
-                        lightbulb
-                    </mat-icon><br>{{this.newVar.lights_today}}
-                </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <div class="subHeading">
-                <mat-card class="iconcard">
-                    <mat-icon>
-                        microwave
-                    </mat-icon><br>{{this.newVar.kitchen_today}}
-                </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <div class="subHeading">
-                <mat-card>
-                    <mat-icon class="iconcard">
-                        developer_board
-                    </mat-icon><br>{{this.newVar.sockets_today}}
-                </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <div class="subHeading">
-                <mat-card class="iconcard">
-                    <mat-icon>
-                        power
-                    </mat-icon><br>{{this.newVar.electrack_today}}
-                </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <div class="subHeading">
-                <mat-card class="iconcard">
-                    <mat-icon>
-                        ac_unit
-                    </mat-icon><br>{{this.newVar.ac_today}}
-                </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        
-
-        <mat-grid-tile colspan=6 rowspan=3>
-            <div class="subHeading"><mat-card class="subHeadingCard">Devices not currently in use</mat-card></div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <div class="subHeading">
-                <mat-card class="iconcard">
-                    <mat-icon>
-                        support_agent
-                    </mat-icon><br>{{this.newVar.lights_today}}
-                </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=4>
-            <div class="subHeading">
-                <mat-card class="iconcard">
-                    <mat-icon>
-                        apartment
-                    </mat-icon><br>{{this.newVar.lights_today}}
-                </mat-card>
-            </div>
-        </mat-grid-tile>
-
-        
-
-
-
-
-    </mat-grid-list>
-</mat-card>
+	<mat-card>
+		<mat-grid-list cols=20 rowHeight="24px">
+			<mat-grid-tile colspan=6 rowspan=4>
+				<mat-card class="titlecard">
+						Appliances
+				</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=14 rowspan=28>
+				<mat-card>
+					<fusioncharts
+						width="1200"
+						height="600"
+						[type]="type"
+						[dataFormat]="dataFormat"
+						[dataSource]="data"
+						>
+					</fusioncharts>
+				</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=6 rowspan=3>
+				<div class="subHeading"><mat-card class="subHeadingCard">Devices being used</mat-card></div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<div class="subHeading">
+					<mat-card class="iconcard">
+						<mat-icon>
+							lightbulb
+						</mat-icon><br>£{{lightCost}}
+					</mat-card>
+				</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<div class="subHeading">
+					<mat-card class="iconcard">
+						<mat-icon>
+								microwave
+						</mat-icon><br>£{{kitchenCost}}
+					</mat-card>
+				</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<div class="subHeading">
+					<mat-card>
+						<mat-icon class="iconcard">
+								developer_board
+						</mat-icon><br>£{{mbportCost}}
+					</mat-card>
+				</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<div class="subHeading">
+					<mat-card class="iconcard">
+						<mat-icon>
+								power
+						</mat-icon><br>£{{electrakCost}}
+					</mat-card>
+				</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<div class="subHeading">
+					<mat-card class="iconcard">
+						<mat-icon>
+								ac_unit
+						</mat-icon><br>£{{acCost}}
+					</mat-card>
+				</div>
+			</mat-grid-tile>
+			<!-- <mat-grid-tile colspan=6 rowspan=3>
+				<div class="subHeading"><mat-card class="subHeadingCard">Devices not currently in use</mat-card></div>
+			</mat-grid-tile> -->
+			<mat-grid-tile colspan=1 rowspan=4>
+				<div class="subHeading">
+					<mat-card class="iconcard">
+						<mat-icon>
+								support_agent
+						</mat-icon><br>£{{lightCost}}
+					</mat-card>
+				</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=4>
+				<div class="subHeading">
+					<mat-card class="iconcard">
+						<mat-icon>
+							apartment
+						</mat-icon><br>£{{lightCost}}
+					</mat-card>
+				</div>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</mat-card>
 </div>

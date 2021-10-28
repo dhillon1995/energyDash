@@ -67,7 +67,6 @@ export class CostCardComponent implements OnInit {
 	constructor(private http: HttpClient, private _influxService: InfluxService) { }
 
 	ngOnInit(): void {
-		//this.calcLightsCost();
 		this.calcTodayCost('light');
 		this.calcTodayCost('kitchen');
 		this.calcTodayCost('mbport');
@@ -92,11 +91,11 @@ export class CostCardComponent implements OnInit {
 			this[power] = res;
 			this[cost] = this[power] * environment.nightTariff;
 		} else {
-			let nightRes:any = this.getPowerData(ranges[0], name)
+			let nightRes:any = await this.getPowerData(ranges[0], name)
 			this[power] = nightRes;
 			this[cost] = this[power] * environment.nightTariff;
 
-			let dayRes: any = this.getPowerData(ranges[1], name);
+			let dayRes: any = await this.getPowerData(ranges[1], name);
 			this[power] = dayRes;
 			this[cost] = this[cost] + this[power] * environment.dayTariff;
 		}
