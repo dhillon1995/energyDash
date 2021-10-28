@@ -8,85 +8,59 @@
             </div>
         </mat-grid-tile>
 
-        
-
         <mat-grid-tile colspan=1>
             <img src="assets/img/sterling.svg" height="32px">
         </mat-grid-tile>
-
         <mat-grid-tile colspan=3 rowspan=1>
-            
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="subHeading">Lights </div>
-
         </mat-grid-tile>
 
         <mat-grid-tile class="arrowTile" colspan=1 rowspan=1>
-            
             <div class="down">
                 <mat-icon [inline]="true">arrow_downward</mat-icon>
             </div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
-            <div class="subHeading">{{this.testVar3.lights_today}} </div>
-
+            <div class="subHeading"> £{{ lightCost }}</div>
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="subHeading">Kitchen </div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="up">
                 <mat-icon [inline]="true">arrow_upward</mat-icon>
             </div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
-            <div class="subHeading">{{this.testVar3.kitchen_today}}</div>
-
+            <div class="subHeading">£{{ kitchenCost }}</div>
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="subHeading">AC </div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="down">
                 <mat-icon [inline]="true">arrow_downward</mat-icon>
             </div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
-            <div class="subHeading">{{this.testVar3.ac_today}}</div>
-
+            <div class="subHeading">£{{ acCost }}</div>
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="subHeading">MB Ports</div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="up">
                 <mat-icon [inline]="true">arrow_upward</mat-icon>
             </div>
@@ -94,31 +68,21 @@
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
-            <div class="subHeading">{{this.testVar3.sockets_today}}</div>
-
+            <div class="subHeading">£{{ mbportCost }}</div>
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="subHeading">Electrack</div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
             <div class="up">
                 <mat-icon [inline]="true">arrow_upward</mat-icon>
             </div>
-
         </mat-grid-tile>
 
         <mat-grid-tile colspan=1 rowspan=1>
-            
-            <div class="subHeading">{{this.testVar3.electrack_today}}</div>
-
+            <div class="subHeading">£{{ electrakCost }}</div>
         </mat-grid-tile>
-
     </mat-grid-list>
-
 </mat-card>

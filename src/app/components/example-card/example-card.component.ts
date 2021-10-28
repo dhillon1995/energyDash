@@ -150,9 +150,6 @@ export class ExampleCardComponent implements OnInit {
 			totalCost += parseFloat(calcDayData[1]);
 		}
 
-		console.log("******************* Projected Week *******************");
-		console.log(totalPower, totalCost);
-
 		averagePower = totalPower / ranges.length;
 		averageCost = totalCost / ranges.length;
 
@@ -187,11 +184,8 @@ export class ExampleCardComponent implements OnInit {
 			totalPower += parseFloat(calcDayData[0]);
 			totalCost += parseFloat(calcDayData[1]);	
 		}
-		console.log("******************* Projected Month *******************");
-		console.log(totalPower, totalCost);
 		averageCost  = totalCost/date;
 		averagePower = totalPower/date;
-		console.log(averagePower, averageCost);
 		// Get last date
 		let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 		let lastDate = lastDayOfMonth.getDate();
@@ -199,8 +193,6 @@ export class ExampleCardComponent implements OnInit {
 		let _averagePower = averagePower * (lastDate - date);
 		let _averageCost  = averageCost * (lastDate - date);
     
-    console.log(lastDate-date);
-    console.log(_averagePower + totalPower, _averageCost + totalCost);
 		this.project_cost_month = (_averageCost + totalCost).toFixed(2);
 		this.project_power_month = (_averagePower + totalPower).toFixed(2);
 	}
