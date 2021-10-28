@@ -10,10 +10,10 @@
         <mat-grid-tile colspan=2 rowspan=4>
             <mat-card class="tabcardtest">
                 <mat-card-title-group>
-                    <div class="cardTitle">44.30 kWh</div>
+                    <div class="cardTitle">{{totalLastMonth}}kWh</div>
                 </mat-card-title-group>
                 <mat-card-content class="tabcardtest_content">
-                    Expected Usage
+                    Last Month
                 </mat-card-content>
                 
             </mat-card>
@@ -22,10 +22,10 @@
         <mat-grid-tile colspan=2 rowspan=4>
             <mat-card class="tabcardtest">
                 <mat-card-title-group>
-                    <div class="cardTitle">51.46 kWh</div>
+                    <div class="cardTitle">{{totalSoFarThisMonth}}kWh</div>
                 </mat-card-title-group>
                 <mat-card-content class="tabcardtest_content">
-                    Actual Usage
+                    So far this month
                 </mat-card-content>
                 
             </mat-card>
@@ -34,37 +34,12 @@
         <mat-grid-tile colspan=2 rowspan=4>
             <mat-card class="tabcardtest">
                 <mat-card-title-group>
-                    <div class="cardTitle">20%<mat-icon [inline]="true">expand_less</mat-icon></div>
+                    <div class="cardTitle">{{totalProjectThisMonth}} kWh</div>
                 </mat-card-title-group>
                 <mat-card-content class="tabcardtest_content">
-                    Difference from expected
+                    Projected this month
                 </mat-card-content>
                 
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=2 rowspan=4>
-            <mat-card class="tabcardtest">
-                <mat-card-title-group>
-                    <div class="cardTitle">44.30 kWh</div>
-                </mat-card-title-group>
-                <mat-card-content class="tabcardtest_content">
-                    Average across all sites
-                </mat-card-content>
-                
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=10 rowspan=26>
-            <mat-card>
-                <fusioncharts
-                width="1400"
-                height="600"
-                [type]="type"
-                [dataFormat]="dataFormat"
-                [dataSource]="dataSource"
-                >
-                </fusioncharts>
             </mat-card>
         </mat-grid-tile>
 
@@ -73,15 +48,20 @@
                The date picker will be here 
             </mat-card>
         </mat-grid-tile>
-
-        <mat-grid-tile colspan=2 rowspan=18>
-            <mat-card class="rankingBoard">
-                This area will house scope filtering options for; costs, power usage, sites shown and more. 
+    </mat-grid-list>
+    <mat-grid-list cols=12 rowHeight="24px">
+        <mat-grid-tile colspan=12 rowspan=26>
+            <mat-card style="padding: 15px;">
+                <fusioncharts
+                width="1200"
+                height="600"
+                [type]="type"
+                [dataFormat]="dataFormat"
+                [dataSource]="dataSource"
+                >
+                </fusioncharts>
             </mat-card>
-            
         </mat-grid-tile>
-
-
     </mat-grid-list>
 </mat-card>
 </div>

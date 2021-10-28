@@ -19,11 +19,12 @@ export class CosttabComponent implements OnInit {
 
   dataSource:any = {
     chart: {
-      caption: "Energy Consumption Cost of This Month",
-      subCaption: "In MMbbl = One Million barrels",
-      xAxisName: "Date in 2021",
-      yAxisName: "Costs in <b>£</b>",
+      caption: "Comparison of cost",
+      yaxisname: "Costs in <b>£</b>",
+      showhovereffect: "1",
       numberPrefix: "£",
+      drawcrossline: "1",
+      plottooltext: " <b>$seriesName</b> used <b>$dataValue</b> in $label",
       theme: "fusion"
     },
     data: []
@@ -55,8 +56,8 @@ export class CosttabComponent implements OnInit {
     const query = `|> range(start: 2021-10-01T00:00:00Z, stop: 2021-10-26T23:00:00Z)
                    |> filter(fn:(r) => r._field == "D6F00034F12A8_CT23")
                    |> hourSelection(start: 7, stop: 23)
-                   |> aggregateWindow(every: 1d, fn: sum)
-                   |> cumulativeSum(columns: ["_value"])`;
+                   |> aggregateWindow(every: 1d, fn: sum)`;
+
     this._influxService.runInfluxQuery(query).then((res:any) => {
       console.log(res);
     });
