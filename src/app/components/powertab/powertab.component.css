@@ -23,3 +23,8 @@
 .frameContainer{
     padding: 10px;
 }
+
+.chart-card {
+    min-width: 1000px;
+    min-height: 600px;
+}

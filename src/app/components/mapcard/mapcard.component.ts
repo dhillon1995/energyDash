@@ -18,12 +18,12 @@ export class MapcardComponent implements OnInit {
 	option:EChartsOption = {
 		tooltip: {
 			position: 'top',
-		    axisPointer: {
-		      type: "shadow",
-		    },
-		    formatter: (params) => {
-		      return `Power: ${params.value[1]} kWh<br />`;
-		    },
+	    axisPointer: {
+	      type: "shadow",
+	    },
+	    formatter: (params) => {
+	      return `Power: ${params.value[1]} kWh<br />`;
+	    },
 		},
 		visualMap: {
 			min: 0,
@@ -66,15 +66,22 @@ export class MapcardComponent implements OnInit {
 	constructor(private _influxService: InfluxService) { }
 
 	ngOnInit(): void {
-		this.getVirtulData();
-		//this.getTestData();
+		//this.getVirtulData();
+		this.getTestData();
 	}
 
 	getTestData() {
-		const query = ` |> range(start: 2021-10-31, stop: 2021-11-30)
-                   	|> filter(fn:(r) => r._field == "D6F00034F12A8_CT22")
-                   	|> hourSelection(start:7, stop:23)
-                   	|> aggregateWindow(every: 1d, fn: sum, column: "_value")`;
+		// const query = ` |> range(start: 2021-11-02T00:00:00Z, stop: 2021-11-02T15:02:05.610Z)
+  //                  	|> filter(fn:(r) => r._field == "D6F00034F12A8_CT22" or
+  //                  		 r._field == "D6F00034F12A8_CT23" or
+  //                  		 r._field == "D6F00034F12A8_CT24" or
+  //                  		 r._field == "D6F00034F12A8_CT21")
+  //                  	|> hourSelection(start:7, stop:23)
+  //                  	|> aggregateWindow(every: 1m, fn: sum, column: "_value")`;
+    const query = `|> range(start: 2021-11-02T00:00:00Z, stop: 2021-11-02T15:15:01.460Z)
+                   |> filter(fn:(r) => r._field == "D6F00034F12A8_CT1" or r._field == "D6F00034F12A8_CT2" or r._field == "D6F00034F12A8_CT4" or r._field == "D6F00034F12A8_CT7" or r._field == "D6F00034F12A8_CT8" or r._field == "D6F00034F12A8_CT9" or r._field == "D6F00034F12A8_CT10" or r._field == "D6F00034F12A8_CT11" or r._field == "D6F00034F12A8_CT12" or r._field == "D6F00034F12A8_CT13" or r._field == "D6F00034F12A8_CT14" or r._field == "D6F00034F12A8_CT15" or r._field == "D6F00034F12A8_CT16" or r._field == "D6F00034F12A8_CT17" or r._field == "D6F00034F12A8_CT19" or r._field == "D6F00034F12A8_CT20" or r._field == "D6F00034F12A8_CT21" or r._field == "D6F00034F12A8_CT22" or r._field == "D6F00034F12A8_CT23" or r._field == "D6F00034F12A8_CT24" or r._field == "D6F00034F12A8_CT25" or r._field == "D6F00034F12A8_CT26" or r._field == "D6F00034F12A8_CT27" or r._field == "D6F00034F12A8_CT28" or r._field == "D6F00034F12A8_CT29")
+                   |> aggregateWindow(every: 1m, fn: sum, column: "_value")
+                   |> group(columns: ["_field"], mode:"by")`;
     this._influxService.runInfluxQuery(query).then((res:any) => {
     	console.log("this is sum test");
     	console.log(res);

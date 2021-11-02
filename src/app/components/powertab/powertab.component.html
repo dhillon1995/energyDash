@@ -1,33 +1,50 @@
 <div class="container">
-    <mat-card>
-    <mat-grid-list cols=3 rowHeight="30px">
-        <mat-grid-tile colspan=1 rowspan=3>
-            <div class="heading">
-                    Real time power draw
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="greenHeading">0.89 kWh</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=2>
-            <div class="greenHeading">4.02 kWh</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=1>
-            <div class="subHeading">Current draw</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=1 rowspan=1>
-            <div class="subHeading">Amount of power used today</div>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan=3 rowspan=20>
-            <mat-card>
-                <a target="_blank" href="https://www.knowatts.co.uk/Power+Manager+Dashboard">  Power Knowatts</a>
-            </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
-</mat-card>
+	<mat-card>
+		<mat-grid-list cols=3 rowHeight="30px">
+			<mat-grid-tile colspan=1 rowspan=5>
+				<div class="heading">
+					Real time power draw
+				</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=2>
+				<div class="greenHeading">0.89 kWh</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=2>
+				<div class="greenHeading">4.02 kWh</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=1>
+				<div class="subHeading">Current draw</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=1>
+				<div class="subHeading">Amount of power used today</div>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=2>
+				<div class="greenHeading">4.02 kWh</div>
+			</mat-grid-tile>
+		</mat-grid-list>
+		<mat-grid-list cols=12 rowHeight="30px">
+			<mat-grid-tile colspan=3 rowspan=30>
+				<mat-expansion-panel>
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							Select different time periods and devices
+						</mat-panel-title>
+					</mat-expansion-panel-header>
+					<mat-form-field appearance="fill">
+					  <mat-label>Favorite food</mat-label>
+					  <mat-select>
+					    <mat-option *ngFor="let food of periods" [value]="food.value">
+					      {{food.viewValue}}
+					    </mat-option>
+					  </mat-select>
+					</mat-form-field>
+				</mat-expansion-panel>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=9 rowspan=30>
+				<mat-card class="chart-card">
+					<div echarts [initOpts]="initOpts" [options]="option" *ngIf="loading"></div>
+				</mat-card>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</mat-card>
 </div>
