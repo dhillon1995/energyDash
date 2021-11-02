@@ -1,314 +1,171 @@
 import { Component, OnInit } from '@angular/core';
-
-const data = {
-  colorrange: {
-    gradient: "0",
-    color: [
-      {
-        code: "#6da81e",
-        minvalue: "0",
-        maxvalue: "50",
-        label: "Low Usage"
-      },
-      {
-        code: "#f6bc33",
-        minvalue: "50",
-        maxvalue: "70",
-        label: "Medium Usage"
-      },
-      {
-        code: "#e24b1a",
-        minvalue: "70",
-        maxvalue: "85",
-        label: "High Usage"
-      },
-      {
-        code: "#ffffff",
-        minvalue: "70",
-        maxvalue: "85",
-        label: "No Usage"
-      }
-    ]
-  },
-  dataset: [
-    {
-      data: [
-        {
-          rowid: "W1",
-          columnid: "F",
-          displayvalue: "1st",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W1",
-          columnid: "Sa",
-          displayvalue: "2nd",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W1",
-          columnid: "Su",
-          displayvalue: "3rd",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W2",
-          columnid: "M",
-          displayvalue: "4th",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W2",
-          columnid: "Tu",
-          displayvalue: "5th",
-          colorrangelabel: "Low Usage"
-        },
-        {
-          rowid: "W2",
-          columnid: "W",
-          displayvalue: "6th",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W2",
-          columnid: "Th",
-          displayvalue: "7th",
-          colorrangelabel: "High Usage"
-        },
-        {
-          rowid: "W2",
-          columnid: "F",
-          displayvalue: "8th",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W2",
-          columnid: "Sa",
-          displayvalue: "9th",
-          colorrangelabel: "Low Usage"
-        },
-        {
-          rowid: "W2",
-          columnid: "Su",
-          displayvalue: "10th",
-          colorrangelabel: "Medium Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "M",
-          displayvalue: "11th",
-          colorrangelabel: "High Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "Tu",
-          displayvalue: "12th",
-          colorrangelabel: "Low Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "W",
-          displayvalue: "13th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "Th",
-          displayvalue: "14th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "F",
-          displayvalue: "15th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "Sa",
-          displayvalue: "16th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W3",
-          columnid: "Su",
-          displayvalue: "17th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "M",
-          displayvalue: "18th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "Tu",
-          displayvalue: "19th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "W",
-          displayvalue: "20th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "Th",
-          displayvalue: "21st",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "F",
-          displayvalue: "22nd",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "Sa",
-          displayvalue: "23rd",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W4",
-          columnid: "Su",
-          displayvalue: "24th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W5",
-          columnid: "M",
-          displayvalue: "25th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W5",
-          columnid: "Tu",
-          displayvalue: "26th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W5",
-          columnid: "W",
-          displayvalue: "27th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W5",
-          columnid: "Th",
-          displayvalue: "28th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W5",
-          columnid: "F",
-          displayvalue: "29th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W5",
-          columnid: "Sa",
-          displayvalue: "30th",
-          colorrangelabel: "No Usage"
-        },
-        {
-          rowid: "W5",
-          columnid: "Su",
-          displayvalue: "31st",
-          colorrangelabel: "No Usage"
-        }
-      ]
-    }
-  ],
-  rows: {
-    row: [
-      {
-        id: "W1",
-        label: " "
-      },
-      {
-        id: "W2",
-        label: " "
-      },
-      {
-        id: "W3",
-        label: " "
-      },
-      {
-        id: "W4",
-        label: " "
-      },
-      {
-        id: "W5",
-        label: " "
-      }
-    ]
-  },
-  columns: {
-    column: [
-      {
-        id: "M",
-        label: "M"
-      },
-      {
-        id: "Tu",
-        label: "Tu"
-      },
-      {
-        id: "W",
-        label: "W"
-      },
-      {
-        id: "Th",
-        label: "Th"
-      }
-      ,
-      {
-        id: "F",
-        label: "F"
-      },
-      {
-        id: "Sa",
-        label: "Sa"
-      },
-      {
-        id: "Su",
-        label: "Su"
-      }
-    ]
-  },
-  chart: {
-    theme: "fusion",
-    caption: "",
-    subcaption: "",
-    showvalues: "1",
-    mapbycategory: "1",
-    showlegend: "0",
-    plottooltext:
-      "Average consumption on the $displayvalue is $colorrangelabel"
-  }
-};
-
+import { EChartsOption } from 'echarts';
+import { InfluxService } from '../../shared/services/influx.service';
 
 @Component({
-  selector: 'app-mapcard',
-  templateUrl: './mapcard.component.html',
-  styleUrls: ['./mapcard.component.css']
+	selector: 'app-mapcard',
+	templateUrl: './mapcard.component.html',
+	styleUrls: ['./mapcard.component.css']
 })
 
 export class MapcardComponent implements OnInit {
-  width = 600;
-  height = 400;
-  type = "heatmap";
-  dataFormat = "json";
-  dataSource = data;
+	overallFields: Array<string> = [
+    'D6F00034F12A8_CT22',
+    'D6F00034F12A8_CT23',
+    'D6F00034F12A8_CT24'
+  ];
 
-  constructor() { }
+	option:EChartsOption = {
+		tooltip: {
+			position: 'top',
+		    axisPointer: {
+		      type: "shadow",
+		    },
+		    formatter: (params) => {
+		      return `Power: ${params.value[1]} kWh<br />`;
+		    },
+		},
+		visualMap: {
+			min: 0,
+			max: 600,
+			orient: 'horizontal',
+			left: 'center',
+			top: 30,
+			calculable: true,
+		},
+		calendar: {
+			orient: 'vertical',
+			yearLabel: {
+				show: false
+			},
+			monthLabel: {
+				show: true
+			},
+			itemStyle: {
+				borderWidth:0.1,
+				borderColor: '#5470c6'
+			},
+			dayLabel: {
+				firstDay: 1,
+				nameMap: 'cn',
+				show: true
+			},
+			cellSize: 40,
+			left: 40,
+			top: 120
+		}   
+	};
 
-  ngOnInit(): void {
+	initOpts = {
+		width: 350,
+		height: 350
+	};
+
+	loading: boolean = false;
+
+	constructor(private _influxService: InfluxService) { }
+
+	ngOnInit(): void {
+		this.getVirtulData();
+		//this.getTestData();
+	}
+
+	getTestData() {
+		const query = ` |> range(start: 2021-10-31, stop: 2021-11-30)
+                   	|> filter(fn:(r) => r._field == "D6F00034F12A8_CT22")
+                   	|> hourSelection(start:7, stop:23)
+                   	|> aggregateWindow(every: 1d, fn: sum, column: "_value")`;
+    this._influxService.runInfluxQuery(query).then((res:any) => {
+    	console.log("this is sum test");
+    	console.log(res);
+    });
+	}
+
+	getDaysSoFarMonth() {
+		let _date = new Date()
+		let firstDay = new Date(_date.getFullYear(), _date.getMonth() , 2).toISOString().slice(0, 10);
+		let date = new Date(firstDay); 
+		let month = date.getMonth();
+		let days: Array<string> = [];
+		Object.assign(this.option.calendar, {range: firstDay.slice(0, 7)});
+		
+		while (date.getMonth() === month) {
+			days.push(new Date(date).toISOString());
+			date.setDate(date.getDate() + 1);
+		}
+
+		return days;
+	}
+
+	async getVirtulData() {
+		let date = new Date();
+		let firstDay = new Date(date.getFullYear(), date.getMonth(), 0); firstDay.setDate(firstDay.getDate() + 1);
+		let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0); lastDay.setDate(lastDay.getDate() + 1);
+		let seriesData: Array<string> = [];
+		let range = `range(start: ${firstDay.toISOString().slice(0,10)}, stop: ${lastDay.toISOString().slice(0,10)})`;
+		let daysData: Array<string> = this.getDaysSoFarMonth();
+		let power: any = await this.getPowerData(range);
+
+		console.log(range);
+		daysData.forEach((item:string, index:number) => {
+			let dataItem: any = [
+				item.slice(0, 10),
+				Math.round((power[index]/1000 + Number.EPSILON) * 100) / 100
+			];
+			seriesData.push(dataItem);
+		})
+		
+	
+		let seriesObject: any = {
+			type: 'effectScatter',
+			coordinateSystem: 'calendar',
+			symbolSize: function (val) {
+				return val[1]/ 10;
+			},
+			label: {
+				show: true,
+				color: "blue",
+				formatter: function (params) {
+					return params.data[0].slice(8, 10);
+				},
+			},
+			data: seriesData
+		}
+
+		Object.assign(this.option, {series: seriesObject});
+		this.loading = true;
+	}
+
+  async getPowerData(range:string) {
+    let total:any = [];
+
+    for (let i = 0; i < this.overallFields.length; i++) {
+      let power: any = await this.runQuery(range, this.overallFields[i]);
+
+      if (i == 0) {
+      	power.forEach((item:any, i:number) => {
+      		if (item._value !== null) {
+      			total.push(item._value);
+      		} else {
+      			total.push(0)
+      		}
+      	});
+      } else {
+      	power.forEach((item:any, i:number) => {
+      		if (item._value !== null) {
+      			total[i] = total[i] + item._value;
+      		}
+      	});
+      }
+    }
+
+    return total;
   }
 
-
+  runQuery(range: string, field: string) {
+    const query = `|> ${range}
+                   |> filter(fn:(r) => r._field == "${field}")
+                   |> aggregateWindow(every: 1d, fn: sum, column: "_value")`;
+    return  this._influxService.runInfluxQuery(query);
+  }
 }

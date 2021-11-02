@@ -14,15 +14,8 @@
         </mat-grid-tile>
 
 
-        <mat-grid-tile colspan=2 rowspan=7>
-                <fusioncharts
-                width="400"
-                height="250"
-                [type]="type"
-                [dataFormat]="dataFormat"
-                [dataSource]="dataSource"
-                >
-                </fusioncharts>
+        <mat-grid-tile colspan=2 rowspan=8>
+          <div echarts [initOpts]="initOpts" [options]="option"  *ngIf="loading"></div>
         </mat-grid-tile>
                 
     </mat-grid-list>

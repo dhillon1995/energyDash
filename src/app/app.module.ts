@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { FusionChartsModule } from "angular-fusioncharts";
+import { NgxEchartsModule } from 'ngx-echarts';
 
 // Import FusionCharts library and chart modules
 import * as FusionCharts from "fusioncharts";
@@ -97,7 +98,10 @@ FusionChartsModule.fcRoot(FusionCharts, FusionWidgets, PowerCharts, charts, Fusi
     MatProgressSpinnerModule,
     MatDialogModule,
     MatTooltipModule,
-    MatInputModule
+    MatInputModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

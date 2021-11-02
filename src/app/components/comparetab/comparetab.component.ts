@@ -128,7 +128,6 @@ export class ComparetabComponent implements OnInit {
     let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1).toISOString().slice(0, 10);
     let total: any = 0.0;
 
-    console.log(firstDay, lastDay);
     let range: string = `range(start: ${firstDay}, stop: ${lastDay})`;
     for(let i = 0; i < this.overallFields.length; i++) {
       let power:any  = await this.runQuery(range, this.overallFields[i]);
