@@ -28,3 +28,33 @@
     min-width: 1000px;
     min-height: 600px;
 }
+
+.example-list-section {
+    text-align: left;
+}
+
+.example-list-section ul{
+    height: 140px;
+    overflow-y: scroll;
+}
+.example-list-section li {
+    list-style-type: none;
+}
+
+.select-all {
+    pointer-events: auto !important;
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+    padding:  0 8px;
+}
+
+.all-section {
+    text-align: left;
+    padding-left: 32px;
+    margin-bottom: 15px;
+}
+
+.filter-expansion {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}

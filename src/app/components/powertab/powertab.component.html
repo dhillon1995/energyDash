@@ -18,32 +18,64 @@
 			<mat-grid-tile colspan=1 rowspan=1>
 				<div class="subHeading">Amount of power used today</div>
 			</mat-grid-tile>
-			<mat-grid-tile colspan=1 rowspan=2>
-				<div class="greenHeading">4.02 kWh</div>
-			</mat-grid-tile>
 		</mat-grid-list>
-		<mat-grid-list cols=12 rowHeight="30px">
-			<mat-grid-tile colspan=3 rowspan=30>
-				<mat-expansion-panel>
+		<mat-grid-list cols=4 rowHeight="60px" gutterSize="10px">
+			<mat-grid-tile colspan=1 rowspan=8>
+				<mat-expansion-panel [expanded]="true" style="border: 1px solid #ccc;">
 					<mat-expansion-panel-header>
 						<mat-panel-title>
 							Select different time periods and devices
 						</mat-panel-title>
 					</mat-expansion-panel-header>
 					<mat-form-field appearance="fill">
-					  <mat-label>Favorite food</mat-label>
-					  <mat-select>
-					    <mat-option *ngFor="let food of periods" [value]="food.value">
-					      {{food.viewValue}}
-					    </mat-option>
-					  </mat-select>
+						<mat-label>Select Time Period</mat-label>
+						<mat-select [(ngModel)]="timePeriod" (selectionChange)="selectTimePeriod($event.value)">
+							<mat-option *ngFor="let period of periods" [value]="period.value">
+								{{period.viewValue}}
+							</mat-option>
+						</mat-select>
 					</mat-form-field>
+					<mat-divider></mat-divider>
+					<section class="example-section">
+						<span class="example-list-section">
+							<ul>
+								<li *ngFor="let device of powerData">
+									<mat-checkbox [(ngModel)]="device.useDevice"
+																(ngModelChange)="useAllDevices()">
+										{{device.label}}
+									</mat-checkbox>
+								</li>
+							</ul>
+						</span>
+						<div class="all-section">
+							<mat-label class="select-all" (click)="setAll(true)">Select All</mat-label>
+							<mat-label class="select-all" (click)="setAll(false)">Disselect All</mat-label>
+						</div>
+					</section>
+					<mat-divider></mat-divider>
+					<mat-form-field appearance="fill" style="margin-top:  30px;">
+					 	<mat-label>Enter Period for View</mat-label>
+						<mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+							<input matStartDate formControlName="start" placeholder="Start date">
+							<input matEndDate formControlName="end" placeholder="End date"  (dateInput)="addNewDate()">
+						</mat-date-range-input>
+						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+						<mat-date-range-picker #picker></mat-date-range-picker>
+					</mat-form-field>
+					<button mat-raised-button (click)="showResult()" color="primary">
+	  				Show Chart
+	   			</button>
 				</mat-expansion-panel>
 			</mat-grid-tile>
-			<mat-grid-tile colspan=9 rowspan=30>
-				<mat-card class="chart-card">
+			<mat-grid-tile colspan=3 rowspan=10>
+				<mat-card class="chart-card" style="border: 1px solid #ccc;">
 					<div echarts [initOpts]="initOpts" [options]="option" *ngIf="loading"></div>
 				</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile colspan=1 rowspan=2>
+				<button mat-raised-button (click)="download()" color="basic">
+	  			Download CSV
+	   		</button>
 			</mat-grid-tile>
 		</mat-grid-list>
 	</mat-card>
