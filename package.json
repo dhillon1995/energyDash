@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~11.2.3",
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
-    "@influxdata/influxdb-client": "^1.18.0",
+    "@influxdata/influxdb-client": "^1.20.0",
     "@influxdata/influxdb-client-browser": "^1.18.0",
     "@juggle/resize-observer": "^3.3.1",
     "angular-fusioncharts": "^3.2.0",
